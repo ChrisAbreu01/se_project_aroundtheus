@@ -4,15 +4,15 @@ let initialCards = [{
     },
     {
         name: "Lake Louise",
-        link: src = "./images/lake lois.jpg"
+        link: src = "./images/lakelois.jpg"
     },
     {
         name: "Bald Mountains",
-        link: src = "./images/bald mountains.jpg"
+        link: src = "./images/baldmountains.jpg"
     },
     {
         name: "Latemar",
-        link: src = "./images/late mar.jpg"
+        link: src = "./images/latemar.jpg"
     },
     {
         name: "Vanoise National Park",
@@ -20,6 +20,6 @@ let initialCards = [{
     },
     {
         name: "Lago di Braies",
-        link: src = "./images/lago de ibraes.jpg"
+        link: src = "./images/lagodeibraes.jpg"
     }
 ];
