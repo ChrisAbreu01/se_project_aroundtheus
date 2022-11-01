@@ -1,21 +1,22 @@
-# Project 3: Around The U.S.
-
+From Homeland to Homeland
 ### Overview  
+* Intro 
+* Tecnologies  
+* Future plans
+* link to the project
+  
+**Intro**    
+  
+This is a project that showcases the hometowns of some of Practicum's tutors and personel, they share some interesting information about the places they come from, share some of there culture and offer to buy as and NFT pictures of their hometowns.
+  
+**Tecnologies**  
+  
+in this project we implement useful tecnologies just to name some: flex-box, grid layout, CSS, HTML and javascript with a BEM structure.       
+  
+**Future plans**  
+  
+  Use this website as a blueprint for new websites, improve and scale the project for bigger needs. 
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+**link to the project** 
+  https://chrisabreu01.github.io/web_project_3/
+  https://github.com/ChrisAbreu01/web_project_3.git

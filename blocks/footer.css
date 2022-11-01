@@ -1,0 +1,19 @@
+.footer__copyrights {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+    margin: 68px 762px 60px 200px;
+    color: #545454;
+    min-width: 318px;
+}
+
+@media screen and (max-width: 600px) {
+    .footer__copyrights {
+        margin: 50px 19px 36px 19px;
+    }
+    .footer {
+        min-width: 282px;
+        width: 282px;
+    }
+}
