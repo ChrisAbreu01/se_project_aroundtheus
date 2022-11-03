@@ -61,7 +61,7 @@
         width: 83%;
     }
     
-    .profile__buttom {
+    .edit_button {
         width: 150px;
         height: 50px;
         border: 2px solid #FFFFFF;
@@ -69,6 +69,7 @@
         border-radius: 2px;
         display: flex;
         margin: 32px 0 0 0;
+        background-color: black;
     }
     
     .profile__buttomMid {
