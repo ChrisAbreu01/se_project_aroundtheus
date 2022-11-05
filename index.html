@@ -14,6 +14,27 @@
 <body class="page">
     <!--body section of the page starts here -->
     <div class="page__content">
+        <!--Modal box section starts here -->
+        <section class="modal_box">
+            <div class="modal_boxshade">
+            </div>
+            <div class="modal__container">
+                <h2 class="modal_header">Edit profile</h2>
+                <form>
+                    <!--<label>Name</label>-->
+                    <div class="modalspace1">
+                        <label for="name" class="modallabel1">Name</label>
+                        <input type="text" class="modalinput1" name="Name">
+                    </div>
+                    <!--<label>Description</label>-->
+                    <div class="modalspace2">
+                        <label for="Description" class="modallabel2">Description</label>
+                        <input type="text" class="modalinput2" name="Description">
+                    </div>
+                </form>
+                <button class="modalsumitbutton"> Save</button>
+            </div>
+        </section>
         <!--header section of the page starts here -->
         <header class="header">
             <img class="header__logo" src="./Vector.png" alt="Around_the_U.S">
@@ -36,19 +57,10 @@
                 <button class="edit_button">
                     <img class="profile__buttomMid" src="./images/addbuttom.png" alt="add_buttom">
                 </button>
-                <div class="modal_box">
-                    <div class="modal-content">
-                        <h2>Edit profile</h2>
-                        <form>
-                            <label>Name</label>
-                            <input type="text" class="modallabel1">
-                            <label>Description</label>
-                            <input type="text" class="modallabel2">
-                            <input type="submit" class="modalsumitbutton">
-                        </form>
-                    </div>
-                </div>
+
             </section>
+
+
             <section class="elements">
                 <div class="elements__element">
                     <img class="elements__img" src="./images/yosemity.jpg" alt=" Yosemite_Valley">
