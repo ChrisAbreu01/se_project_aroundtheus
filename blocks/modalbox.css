@@ -16,10 +16,6 @@
     max-width: inherit;
 }
 
-.modal_box-opened {
-    display: flex;
-}
-
 .modal__container {
     align-content: center;
     background-color: #fefefe;
@@ -46,7 +42,6 @@
 .modal_closebuttonicon {
     top: 147px;
     right: 377px;
-    position: fixed;
 }
 
 .modal_boxshade {
