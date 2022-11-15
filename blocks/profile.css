@@ -40,6 +40,9 @@
         box-sizing: border-box;
         display: flex;
         margin: 32px 0 0 18px;
+        background: url(../images/Vector.png);
+        background-repeat: no-repeat;
+        background-position: center;
     }
     
     .profile__subtitle {

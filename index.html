@@ -16,24 +16,20 @@
     <div class="page__content">
         <!--Modal box section starts here -->
         <section class="modal_box">
-            <div class="modal_boxshade">
+            <div class="modal_box-shade">
             </div>
             <div class="modal__container">
-                <button class="modal_closebutton"> <img src="./images/Close Icon.png" class="modal_closebuttonicon" alt="Close"></button>
+                <button class="modal_close-button"> </button>
                 <h2 class="modal_header">Edit profile</h2>
-                <form>
-                    <!--<label>Name</label>-->
-                    <div class="modalspace">
-                        <label for="name" class="modallabel1">Name</label>
-                        <input type="text" class="modalinput" name="Name">
+                <form class="modal_form">
+                    <div class="modal_space">
+                        <input type="text" class="modal_input modal_input-1" name="Name" placeholder="Name">
                     </div>
-                    <!--<label>Description</label>-->
-                    <div class="modalspace">
-                        <label for="Description" class="modallabel2">Description</label>
-                        <input type="text" class="modalinput" name="Description">
+                    <div class="modal_space">
+                        <input type="text" class="modal_input modal_input-2" name="Description" placeholder="Description">
                     </div>
+                    <button type="submit" class="modal_sumit-button"> Save</button>
                 </form>
-                <button class="modalsumitbutton"> Save</button>
             </div>
         </section>
         <!--header section of the page starts here -->
@@ -50,9 +46,8 @@
                             <h2 class="profile__name"> Jacques Cousteau</h2>
                             <p class="profile__subtitle">Explorer</p>
                         </div>
-                        <div class="profile__edit-space">
-                            <img class="profile__edit" src="./images/Vector.png" alt="profile_edit_button">
-                        </div>
+                        <button class="profile__edit-space">
+                        </button>
                     </div>
                 </div>
                 <button class="edit_button">
@@ -63,48 +58,15 @@
 
 
             <section class="elements">
-                <div class="elements__element">
-                    <img class="elements__img" src="./images/yosemity.jpg" alt=" Yosemite_Valley">
-                    <div class="elements__tag">
-                        <p class="elements__title">Yosemite Valley</p>
-                        <img class="elements__like-buttom" src="./images/likeheart.svg" alt="likeButtom">
+                <template id="elements-template">
+                    <div class="elements__element">
+                        <img class="elements__img" src="" alt="">
+                        <div class="elements__tag">
+                            <p class="elements__title">Yosemite Valley</p>
+                            <img class="elements__like-buttom" src="./images/likeheart.svg" alt="likeButtom">
+                        </div>
                     </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__img" src="./images/lakelois.jpg" alt="Lake_Louise">
-                    <div class="elements__tag">
-                        <p class="elements__title">Lake Louise</p>
-                        <img class="elements__like-buttom" src="./images/likeheart.svg" alt="like_buttom">
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__img" src="./images/baldmountains.jpg" alt="Bald_Mountains">
-                    <div class="elements__tag">
-                        <p class="elements__title">Bald Mountains</p>
-                        <img class="elements__like-buttom" src="./images/likeheart.svg" alt="like_buttom">
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__img" src="./images/latemar.jpg" alt="Latemar">
-                    <div class="elements__tag">
-                        <p class="elements__title">Latemar</p>
-                        <img class="elements__like-buttom" src="./images/likeheart.svg" alt="like_buttom">
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__img" src="./images/vanoise.jpg" alt="Vanoise National...">
-                    <div class="elements__tag">
-                        <p class="elements__title">Vanoise National Park</p>
-                        <img class="elements__like-buttom" src="./images/likeheart.svg" alt="like_buttom">
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__img" src="./images/lagodeibraes.jpg" alt="Lago_di_Braies">
-                    <div class="elements__tag">
-                        <p class="elements__title">Lago di Braies</p>
-                        <img class="elements__like-buttom" src="./images/likeheart.svg" alt="like_Buttom">
-                    </div>
-                </div>
+                  </template>
             </section>
 
         </main>

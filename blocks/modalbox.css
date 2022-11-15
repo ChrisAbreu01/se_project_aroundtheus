@@ -31,20 +31,24 @@
     flex-direction: column;
 }
 
-.modal_closebutton {
+.modal_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_close-button {
     position: absolute;
     top: 147px;
     right: 377px;
-    background-color: black;
+    background: url(../images/CloseIcon.png);
+    background-repeat: no-repeat;
     border: none;
+    width: 40px;
+    height: 40px;
+    transform: rotate(-1deg);
 }
 
-.modal_closebuttonicon {
-    top: 147px;
-    right: 377px;
-}
-
-.modal_boxshade {
+.modal_box-shade {
     background-color: black;
     opacity: 75%;
     max-width: inherit;
@@ -54,7 +58,7 @@
     position: fixed;
 }
 
-.modalspace {
+.modal_space {
     display: flex;
     flex-direction: column;
 }
@@ -69,7 +73,7 @@
     margin-left: 36px;
 }
 
-.modalinput {
+.modal_input {
     margin: 0px 36px 30px 36px;
     width: 100%;
     max-width: 358px;
@@ -79,15 +83,14 @@
     opacity: 50%;
 }
 
-.modalsumitbutton {
+.modal_sumit-button {
     width: 100%;
-    height: 100%;
     max-width: 358px;
-    max-height: 50px;
+    height: 50px;
     background-color: black;
     color: white;
     border-radius: 2px;
-    margin: 0 auto;
+    margin: 18px auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -96,24 +99,25 @@
         max-height: 322px;
         margin-top: 123px;
     }
-    .modalsumitbutton {
+    .modal_sumit-button {
         max-width: 238px;
         max-height: 46px;
     }
-    .modalinput {
+    .modal_input {
         max-width: 238px;
         margin: 0px 22px 30px 22px;
     }
-    .modalspace {
+    .modal_space {
         max-width: 238px;
     }
-    .modal_closebutton {
+    .modal_close-button {
         top: 73px;
         right: 19px;
         width: 26px;
         height: 26px;
+        background-size: contain;
     }
-    .modal_closebuttonicon {
+    .modal_close-buttonicon {
         top: 73px;
         right: 19px;
         width: 26px;
