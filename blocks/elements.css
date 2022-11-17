@@ -29,14 +29,17 @@
     height: 19px;
 }
 
+.elements__like-buttom:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
 .elements__tag {
     display: flex;
     margin: 25px 15px 31px 21px;
     align-items: center;
     justify-content: space-between;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .elements__title {
@@ -44,6 +47,9 @@
     margin: 0;
     font-size: 24px;
     line-height: 29px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .elements__img {
@@ -51,6 +57,14 @@
     width: 100%;
     max-width: 282px;
     border-radius: 10px 10px 0px 0px;
+}
+
+@media screen and (max-width: 880px) {
+    .elements {
+        grid-template-columns: 282px 282px;
+        grid-template-rows: 361px 361px 361px;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 600px) {

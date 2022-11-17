@@ -11,9 +11,20 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    display: none;
+    display: flex;
     justify-content: space-around;
     max-width: inherit;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.modal_box_opened {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal__container {
@@ -46,6 +57,12 @@
     width: 40px;
     height: 40px;
     transform: rotate(-1deg);
+}
+
+.modal_close-button:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .modal_box-shade {
@@ -91,6 +108,12 @@
     color: white;
     border-radius: 2px;
     margin: 18px auto;
+}
+
+.modal_sumit-button:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 @media screen and (max-width: 600px) {

@@ -24,31 +24,12 @@ let initialCards = [{
     }
 ];
 
-let modalBoxOpen = document.querySelector('.profile__edit-space');
-let modalBoxClose = document.querySelector('.modal_close-button');
-let modalDisplay = document.querySelector(".modal_box");
-let modalLabelDefault1 = document.querySelector(".modallabel1");
-let modalLabelDefault2 = document.querySelector(".modallabel2");
-let profileTitle = document.querySelector(".profile__name").textContent;
-let profileSubtitle = document.querySelector(".profile__subtitle").textContent;
-let cardElementSelector = document.querySelector(".elements");
-console.log(cardElementSelector);
+const profileModalBoxOpen = document.querySelector('.profile__edit-space');
+const profileModalBoxClose = document.querySelector('.modal_close-button');
+const modalDisplay = document.querySelector(".modal_box");
+const cardsContainer = document.querySelector(".elements");
+
 const cardTemplate = document.querySelector("#elements-template").content.querySelector('.elements__element');
-console.log(cardTemplate);
-
-function Opener() {
-    modalDisplay.setAttribute("style", "display:flex");
-    modalLabelDefault1.textContent = profileTitle;
-    modalLabelDefault2.textContent = profileSubtitle;
-}
-
-function closer() {
-    modalDisplay.setAttribute("style", "display:none");
-}
-modalBoxOpen.addEventListener("click", Opener);
-modalBoxClose.addEventListener("click", closer);
-
-
 const profileFormElement = document.querySelector(".modal_form");
 const formElement = document.querySelector(".modal_sumit-button");
 
@@ -60,34 +41,46 @@ const jobInput = document.querySelector(".modal_input-2");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__subtitle");
 
+
+
+function openModal() {
+    modalDisplay.classList.add("modal_box_opened");
+    nameInput.placeholder = profileName.textContent;
+    jobInput.placeholder = profileJob.textContent;
+
+}
+
+function closeModal() {
+    modalDisplay.classList.remove("modal_box_opened");
+}
+profileModalBoxOpen.addEventListener("click", openModal);
+profileModalBoxClose.addEventListener("click", closeModal);
+
+
+
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
 
-    profileName.textContent = (document.querySelector('.modal_input-1').value);
-    profileJob.textContent = (document.querySelector('.modal_input-2').value);
+    profileName.textContent = (nameInput.value);
+    profileJob.textContent = (jobInput.value);
 
-    closer();
+    closeModal()
 }
 formElement.addEventListener('click', handleProfileFormSubmit);
 
 function getCardElement(data) {
-    let cardElement = cardTemplate.cloneNode(true);
-    console.log(cardElement);
-    let cardImage = cardElement.querySelector(".elements__img");
-    let cardTitle = cardElement.querySelector(".elements__title");
-    console.log(cardImage);
+    const cardElement = cardTemplate.cloneNode(true);
+    const cardImage = cardElement.querySelector(".elements__img");
+    const cardTitle = cardElement.querySelector(".elements__title");
     cardImage.src = data.link;
     cardImage.alt = data.name;
     cardTitle.textContent = data.name;
-    console.log(cardTitle);
-    console.log(cardElement);
+
     return cardElement;
 
 
 }
-for (let i = 0; i < initialCards.length; i++) {
-    const item = initialCards[i];
-    console.log(item);
-    const cardElement = getCardElement(item);
-    cardElementSelector.append(cardElement);
-}
+initialCards.forEach(cardData => {
+    const cardElement = getCardElement(cardData);
+    cardsContainer.append(cardElement);
+})
