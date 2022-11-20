@@ -57,12 +57,14 @@
     width: 40px;
     height: 40px;
     transform: rotate(-1deg);
+    
 }
 
 .modal_close-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .modal_box-shade {
@@ -108,12 +110,14 @@
     color: white;
     border-radius: 2px;
     margin: 18px auto;
+    
 }
 
 .modal_sumit-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

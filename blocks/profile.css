@@ -43,6 +43,7 @@
                     background: url(../images/Vector.png);
                     background-repeat: no-repeat;
                     background-position: center;
+                    cursor: pointer;
                 }
                 
                 .profile__edit-space:hover {
@@ -80,12 +81,14 @@
                     display: flex;
                     margin: 32px 0 0 0;
                     background-color: black;
+                    
                 }
                 
                 .edit_button:hover {
                     -webkit-transform: scale(1.1);
                     -ms-transform: scale(1.1);
                     transform: scale(1.1);
+                    cursor: pointer;
                 }
                 
                 .profile__buttomMid {

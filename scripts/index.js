@@ -1,4 +1,4 @@
-let initialCards = [{
+const initialCards = [{
         name: "Yosemite valley",
         link: "./images/yosemity.jpg"
     },
@@ -31,7 +31,7 @@ const cardsContainer = document.querySelector(".elements");
 
 const cardTemplate = document.querySelector("#elements-template").content.querySelector('.elements__element');
 const profileFormElement = document.querySelector(".modal_form");
-const formElement = document.querySelector(".modal_sumit-button");
+const saveProfileButton = profileFormElement.querySelector(".modal_sumit-button");
 
 
 const nameInput = document.querySelector(".modal_input-1");
@@ -45,8 +45,8 @@ const profileJob = document.querySelector(".profile__subtitle");
 
 function openModal() {
     modalDisplay.classList.add("modal_box_opened");
-    nameInput.placeholder = profileName.textContent;
-    jobInput.placeholder = profileJob.textContent;
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
 
 }
 
@@ -66,8 +66,8 @@ function handleProfileFormSubmit(evt) {
 
     closeModal()
 }
-formElement.addEventListener('click', handleProfileFormSubmit);
-
+saveProfileButton.addEventListener('click', handleProfileFormSubmit);
+profileFormElement.addEventListener('submit',handleProfileFormSubmit )
 function getCardElement(data) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardImage = cardElement.querySelector(".elements__img");

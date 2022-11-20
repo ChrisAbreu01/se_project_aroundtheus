@@ -27,12 +27,14 @@
     grid-area: like;
     width: 21px;
     height: 19px;
+   
 }
 
 .elements__like-buttom:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .elements__tag {
