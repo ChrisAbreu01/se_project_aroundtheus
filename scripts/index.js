@@ -66,7 +66,6 @@ function handleProfileFormSubmit(evt) {
 
     closeModal()
 }
-saveProfileButton.addEventListener('click', handleProfileFormSubmit);
 profileFormElement.addEventListener('submit',handleProfileFormSubmit )
 function getCardElement(data) {
     const cardElement = cardTemplate.cloneNode(true);
