@@ -14,7 +14,7 @@
 <body class="page">
     <!--body section of the page starts here -->
     <div class="page__content">
-        <!--Modal box section starts here -->
+        <!--The edit profile modal box section starts here -->
         <section class="modal_box">
             <div class="modal_box-shade">
             </div>
@@ -32,6 +32,26 @@
                 </form>
             </div>
         </section>
+        <!--The adding card modal box section starts here -->
+        <section class="card__modal-box">
+            <div class="card__modal-box-shade">
+            </div>
+            <div class="card__modal-container">
+                <button class="card__modal-close-button"> </button>
+                <h2 class="card__modal-header">New Place</h2>
+                <form class="card__modal-form">
+                    <div class="card__modal-space">
+                        <input type="text" class="card__modal-input card__modal-input-1" name="Title" placeholder="Title" required>
+                    </div>
+                    <div class="card__modal-space">
+                        <input type="text" class="card__modal-input card__modal-input-2" name="Image URL" placeholder="Image URL" required>
+                    </div>
+                    <button type="submit" class="card__modal-sumit-button"> Save</button>
+                </form>
+            </div>
+        </section>
+
+        
         <!--header section of the page starts here -->
         <header class="header">
             <img class="header__logo" src="./Vector.png" alt="Around_the_U.S">
@@ -49,20 +69,34 @@
                         </button>
                     </div>
                 </div>
-                <button class="edit_button">
-                    <img class="profile__buttomMid" src="./images/addbuttom.png" alt="add_buttom">
+                <button class="profile__edit-button">
                 </button>
 
             </section>
-
+            <section class="image__modal">
+                <template id="image__modal-box-template">
+                    <div class="image__modal-box">
+                <div class="image__modal-box-shade">
+                    <div class="image__modal-container">
+                        <button class="image__modal-close-button"> </button>
+                        <img src="" alt="" class="image__Content">
+                        <p class="image__title"></p>
+                    </div>
+                </div>
+            </div>
+            </template>
+            </section>
 
             <section class="elements">
                 <template id="elements-template">
                     <div class="elements__element">
+                        <div class="element__delete-buttom"></div>
                         <img class="elements__img" src="" alt="">
                         <div class="elements__tag">
                             <p class="elements__title">Yosemite Valley</p>
-                            <img class="elements__like-buttom" src="./images/likeheart.svg" alt="likeButtom">
+                        <div class="elements__like-buttom-area">
+                            <button class="elements__like-buttom"> </button>
+                            
                         </div>
                     </div>
                   </template>

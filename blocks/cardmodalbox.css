@@ -1,9 +1,8 @@
-.modal_header {
+.card__modal-header {
     color: black;
     margin: 34px 64px 54px 36px;
 }
-
-.modal_box {
+.card__modal-box {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -16,14 +15,15 @@
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
-.modal_box_opened {
+.card__modal-box-opened {
     visibility: visible;
     opacity: 1;
     pointer-events: all;
     transition: visibility 0s, opacity 0.5s linear;
+    z-index: 1;
 }
 
-.modal__container {
+.card__modal-container {
     align-content: center;
     background-color: #fefefe;
     width: 100%;
@@ -38,12 +38,12 @@
     flex-direction: column;
 }
 
-.modal_form {
+.card__modal-form {
     display: flex;
     flex-direction: column;
 }
 
-.modal_close-button {
+.card__modal-close-button{
     position: absolute;
     top: 147px;
     right: 377px;
@@ -56,14 +56,14 @@
     
 }
 
-.modal_close-button:hover {
+.card__modal-close-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.modal_box-shade {
+.card__modal-box-shade {
     background-color: black;
     opacity: 75%;
     max-width: inherit;
@@ -73,11 +73,11 @@
     position: fixed;
 }
 
-.modal_space {
+.card__modal-space{
     display: flex;
     flex-direction: column;
 }
-.modal_input {
+.card__modal-input {
     margin: 0px 36px 30px 36px;
     width: 100%;
     max-width: 358px;
@@ -86,7 +86,7 @@
     outline: none;
 }
 
-.modal_sumit-button {
+.card__modal-sumit-button {
     width: 100%;
     max-width: 358px;
     height: 50px;
@@ -97,7 +97,7 @@
     
 }
 
-.modal_sumit-button:hover {
+.card__modal-sumit-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -105,27 +105,28 @@
 }
 
 @media screen and (max-width: 600px) {
-    .modal__container {
+    .card__modal-container {
         max-width: 282px;
         max-height: 322px;
         margin-top: 123px;
     }
-    .modal_sumit-button {
+    .card__modal-sumit-button {
         max-width: 238px;
         max-height: 46px;
     }
-    .modal_input {
+    .card__modal-input {
         max-width: 238px;
         margin: 0px 22px 30px 22px;
     }
-    .modal_space {
+    .card__modal-space{
         max-width: 238px;
     }
-    .modal_close-button {
+    .card__modal-close-button {
         top: 73px;
         right: 19px;
         width: 26px;
         height: 26px;
         background-size: contain;
     }
+   
 }

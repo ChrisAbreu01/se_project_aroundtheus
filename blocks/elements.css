@@ -1,3 +1,4 @@
+
 .elements {
     display: grid;
     grid-template-columns: 282px 282px 282px;
@@ -12,7 +13,7 @@
 .elements__element {
     display: grid;
     grid-template-columns: 282px;
-    grid-template-rows: 282px 79px;
+    grid-template-rows: 282px 79px ;
     grid-template-areas: "imagen imagen" "title like";
     background-color: #ffffff;
     color: black;
@@ -22,12 +23,39 @@
     border-radius: 10px;
     margin: 0;
 }
+.element__delete-buttom{
+    position: absolute;
+    background-image: url(../images/Trash.png);
+    width: 18px;
+    height: 18px;
+    margin: 24px 0 0 250px;
+}
+.element__delete-buttom:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+    opacity: 0.7;
 
-.elements__like-buttom {
-    grid-area: like;
+}
+
+.elements__like-buttom-area{
     width: 21px;
     height: 19px;
-   
+    grid-area: like;
+}
+.elements__like-buttom { 
+    width: 21px;
+    height: 19px;
+    background-image: url(../images/likeheart.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-style: none;
+    background-position: center;
+    overflow: visible;  
+}
+.elements__like-buttom-black{
+    background-image: url(../images/Vectorblack.png);
 }
 
 .elements__like-buttom:hover {
