@@ -32,8 +32,6 @@ const cardModalDisplay = document.querySelector(".card__modal-box");
 const profileModalDisplay = document.querySelector(".modal_box");
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#elements-template").content.querySelector('.elements__element');
-const imageModalBoxTemplate = document.querySelector("#image__modal-box-template").content.querySelector('.image__modal-box');
-const imageContainer = document.querySelector(".image__modal");
 const profileFormElement = document.querySelector(".modal_form");
 const cardFormElement = document.querySelector(".card__modal-form");
 const nameInput = document.querySelector(".modal_input-1");
@@ -88,24 +86,24 @@ function getCardElement(data) {
     cardImage.src = data.link;
     cardImage.alt = data.name;
     cardTitle.textContent = data.name;
+    cardImage.addEventListener('click', () => {
+        handlePreviewPicture(data);
+    })
 
     return cardElement;
 }
-function getImageModalBoxElement (data){
-    const imageModalElement = imageModalBoxTemplate.cloneNode(true); 
-    let cardImageModalImage = imageModalElement.querySelector(".image__Content");
-    let cardImageModalTitle = imageModalElement.querySelector(".image__title");
-    cardImageModalImage.src = data.link;
-    cardImageModalImage.alt = data.name;
-    cardImageModalTitle.textContent = data.name;
-    return imageModalElement;
+const imageElement = document.querySelector(".popup__image");
+const imageCaption = document.querySelector(".popup__caption");
+
+function handlePreviewPicture(data) {
+    imageElement.src = data.link;
+    imageElement.alt = data.name;
+    imageCaption.textContent = data.name;
+    openModal();
 }
-function generateImageModalBox (){
-    initialCards.forEach(cardData => {
-        const imageModalElement = getImageModalBoxElement(cardData);
-        imageContainer.prepend(imageModalElement);
-        
-    })
+function openModal () {
+    const imageView = document.querySelector(".popup");
+imageView.classList.add("popup_is-opened");
 }
 function generateCards (){
     initialCards.forEach(cardData => {
@@ -114,25 +112,15 @@ function generateCards (){
         
     })
 }
-generateImageModalBox ();
 generateCards ();
 
 function addEventToCards (data){
-    const cardLikeButtom = document.querySelectorAll(".elements__like-buttom");
-    const cardImage = document.querySelectorAll(".elements__img");
-    cardImage.forEach(data =>{
-        data.addEventListener("click",openImageModal);
-    })    
+    const cardLikeButtom = document.querySelectorAll(".elements__like-buttom");    
     cardLikeButtom.forEach(data =>{
         data.addEventListener("click",() => data.classList.toggle("elements__like-buttom-black"));
     })    
 }
 addEventToCards ();
-function openImageModal() {
-    const imageModalBox = document.querySelector(".image__modal-box");
-    imageModalBox.classList.add("image__modal-box-opened");
-
-}
 function handleCardFormSubmit(evt) {
     evt.preventDefault();
 
