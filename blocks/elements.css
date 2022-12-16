@@ -13,7 +13,7 @@
 .elements__element {
     display: grid;
     grid-template-columns: 282px;
-    grid-template-rows: 282px 79px ;
+    grid-template-rows: 282px 79px;
     grid-template-areas: "imagen imagen" "title like";
     background-color: #ffffff;
     color: black;
