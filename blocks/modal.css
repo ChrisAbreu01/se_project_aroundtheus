@@ -1,9 +1,9 @@
-.modal_header {
+.modal__header {
     color: black;
     margin: 34px 64px 54px 36px;
 }
 
-.modal_box {
+.modal {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -43,7 +43,7 @@
     flex-direction: column;
 }
 
-.modal_close-button {
+..modal__close-button {
     position: absolute;
     top: 147px;
     right: 377px;
@@ -56,7 +56,7 @@
     
 }
 
-.modal_close-button:hover {
+..modal__close-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -121,7 +121,7 @@
     .modal_space {
         max-width: 238px;
     }
-    .modal_close-button {
+    ..modal__close-button {
         top: 73px;
         right: 19px;
         width: 26px;

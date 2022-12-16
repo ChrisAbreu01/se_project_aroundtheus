@@ -25,11 +25,11 @@ let initialCards = [{
 ];
 
 const profileModalBoxOpen = document.querySelector('.profile__edit-space');
-const profileModalBoxClose = document.querySelector('.modal_close-button');
+const profileModalBoxClose = document.querySelector('.modal__close-button');
 const cardModalBoxOpen = document.querySelector(".profile__edit-button");
 const cardModalBoxClose = document.querySelector('.card__modal-close-button');
 const cardModalDisplay = document.querySelector(".card__modal-box");
-const profileModalDisplay = document.querySelector(".modal_box");
+const profileModalDisplay = document.querySelector(".modal");
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#elements-template").content.querySelector('.elements__element');
 const profileFormElement = document.querySelector(".modal_form");
