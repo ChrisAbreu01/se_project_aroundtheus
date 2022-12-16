@@ -40,8 +40,8 @@ const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__subtitle");
 const cardTitleInput = document.querySelector(".card__modal-input-1");
 const cardUrlInput = document.querySelector(".card__modal-input-2");
-
-
+const imageModalClose = document.querySelector(".popup__close");
+const imageView = document.querySelector(".popup");
 
 function openProfileModal() {
     profileModalDisplay.classList.add("modal_box_opened");
@@ -81,8 +81,8 @@ function handleProfileFormSubmit(evt) {
 profileFormElement.addEventListener('submit',handleProfileFormSubmit );
 function getCardElement(data) {
     const cardElement = cardTemplate.cloneNode(true);
-    let cardImage = cardElement.querySelector(".elements__img");
-    let cardTitle = cardElement.querySelector(".elements__title");
+    const cardImage = cardElement.querySelector(".elements__img");
+    const cardTitle = cardElement.querySelector(".elements__title");
     cardImage.src = data.link;
     cardImage.alt = data.name;
     cardTitle.textContent = data.name;
@@ -102,9 +102,13 @@ function handlePreviewPicture(data) {
     openModal();
 }
 function openModal () {
-    const imageView = document.querySelector(".popup");
-imageView.classList.add("popup_is-opened");
+    imageView.classList.add("popup_is-opened");
+    
 }
+function closeModal (){
+    imageView.classList.remove("popup_is-opened");
+}
+imageModalClose.addEventListener("click", closeModal);
 function generateCards (){
     initialCards.forEach(cardData => {
         const cardElement = getCardElement(cardData);
@@ -133,7 +137,7 @@ function handleCardFormSubmit(evt) {
     closeCardModal();
 }
 function deleteCardHandler(){
-let deleteCard = document.querySelectorAll(".element__delete-buttom");
+const deleteCard = document.querySelectorAll(".element__delete-buttom");
 deleteCard.forEach(data => {
     data.addEventListener("click", function() {
         const listItem = data.closest(".elements__element");
