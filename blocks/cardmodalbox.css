@@ -2,7 +2,7 @@
     color: black;
     margin: 34px 64px 54px 36px;
 }
-.card__modal-box {
+.card {
     position: fixed;
     height: 100%;
     width: 100%;

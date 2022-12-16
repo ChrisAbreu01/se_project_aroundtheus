@@ -38,7 +38,7 @@
     flex-direction: column;
 }
 
-.modal_form {
+.modal__form {
     display: flex;
     flex-direction: column;
 }
@@ -63,7 +63,7 @@
     cursor: pointer;
 }
 
-.modal_box-shade {
+.modal__box-shade {
     background-color: black;
     opacity: 75%;
     max-width: inherit;
@@ -73,11 +73,11 @@
     position: fixed;
 }
 
-.modal_space {
+.modal__space {
     display: flex;
     flex-direction: column;
 }
-.modal_input {
+.modal__input {
     margin: 0px 36px 30px 36px;
     width: 100%;
     max-width: 358px;
@@ -86,7 +86,7 @@
     outline: none;
 }
 
-.modal_sumit-button {
+.modal__sumit-button {
     width: 100%;
     max-width: 358px;
     height: 50px;
@@ -97,7 +97,7 @@
     
 }
 
-.modal_sumit-button:hover {
+.modal__sumit-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -110,15 +110,15 @@
         max-height: 322px;
         margin-top: 123px;
     }
-    .modal_sumit-button {
+    .modal__sumit-button {
         max-width: 238px;
         max-height: 46px;
     }
-    .modal_input {
+    .modal__input {
         max-width: 238px;
         margin: 0px 22px 30px 22px;
     }
-    .modal_space {
+    .modal__space {
         max-width: 238px;
     }
     ..modal__close-button {
