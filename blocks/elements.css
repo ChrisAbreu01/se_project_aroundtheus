@@ -52,7 +52,8 @@
     background-size: contain;
     border-style: none;
     background-position: center;
-    overflow: visible;  
+    overflow: visible;
+    background-color: transparent;
 }
 .elements__like-buttom-black{
     background-image: url(../images/Vectorblack.png);
@@ -87,6 +88,7 @@
     width: 100%;
     max-width: 282px;
     border-radius: 10px 10px 0px 0px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 880px) {

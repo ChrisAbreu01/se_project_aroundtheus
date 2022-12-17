@@ -1,112 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An epic journey from Kentucky to Burundi through Wales and Ukraine.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An epic journey from Kentucky to Burundi through Wales and Ukraine."
+    />
     <title>Practicum Art Gallery</title>
-    <link rel="stylesheet" href="./pages/index.css">
-    <link rel="icon" type="image/x-icon" href="../a__logo.svg">
-</head>
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" type="image/x-icon" href="../a__logo.svg" />
+  </head>
 
-<body class="page">
+  <body class="page">
     <!--body section of the page starts here -->
     <div class="page__content">
-        <!--The edit profile modal box section starts here -->
-        <section class="modal">
-            <div class="modal__box-shade">
+      <!--The edit profile modal box section starts here -->
+      <section class="modal">
+        <div class="modal__box-shade"></div>
+        <div class="modal__container">
+          <button class="modal__close-button"></button>
+          <h2 class="modal__header">Edit profile</h2>
+          <form class="modal__form">
+            <div class="modal__space">
+              <input
+                type="text"
+                class="modal__input modal__input-1"
+                name="Name"
+                placeholder="Name"
+                required
+              />
             </div>
-            <div class="modal__container">
-                <button class="modal__close-button"> </button>
-                <h2 class="modal__header">Edit profile</h2>
-                <form class="modal__form">
-                    <div class="modal__space">
-                        <input type="text" class="modal__input modal__input-1" name="Name" placeholder="Name" required>
-                    </div>
-                    <div class="modal__space">
-                        <input type="text" class="modal__input modal__input-2" name="Description"
-                            placeholder="Description" required>
-                    </div>
-                    <button type="submit" class="modal__sumit-button"> Save</button>
-                </form>
+            <div class="modal__space">
+              <input
+                type="text"
+                class="modal__input modal__input-2"
+                name="Description"
+                placeholder="Description"
+                required
+              />
             </div>
+            <button type="submit" class="modal__sumit-button">Save</button>
+          </form>
+        </div>
+      </section>
+      <!--The adding card modal box section starts here -->
+      <section class="card">
+        <div class="card__modal-box-shade"></div>
+        <div class="card__modal-container">
+          <button class="card__modal-close-button"></button>
+          <h2 class="card__modal-header">New Place</h2>
+          <form class="card__modal-form">
+            <div class="card__modal-space">
+              <input
+                type="text"
+                class="card__modal-input card__modal-input-1"
+                name="Title"
+                placeholder="Title"
+                required
+              />
+            </div>
+            <div class="card__modal-space">
+              <input
+                type="text"
+                class="card__modal-input card__modal-input-2"
+                name="Image URL"
+                placeholder="Image URL"
+                required
+              />
+            </div>
+            <button type="submit" class="card__modal-sumit-button">Save</button>
+          </form>
+        </div>
+      </section>
+
+      <!--header section of the page starts here -->
+      <header class="header">
+        <img class="header__logo" src="./Vector.png" alt="Around_the_U.S" />
+      </header>
+      <main class="page__main">
+        <section class="profile">
+          <div class="profile__main">
+            <img
+              class="profile__image"
+              src="./images/profile.jpg"
+              alt="profile_picture"
+            />
+            <div class="profile__content">
+              <div class="profile__titles">
+                <h2 class="profile__name">Jacques Cousteau</h2>
+                <p class="profile__subtitle">Explorer</p>
+              </div>
+              <button class="profile__edit-space"></button>
+            </div>
+          </div>
+          <button class="profile__edit-button"></button>
         </section>
-        <!--The adding card modal box section starts here -->
-        <section class="card">
-            <div class="card__modal-box-shade">
+        <div class="popup" id="image-popup">
+          <div class="popup__content popup__content_content_image">
+            <button class="popup__close" type="button"></button>
+            <img alt=".." class="popup__image" src=".." />
+            <p class="popup__caption"></p>
+          </div>
+        </div>
+
+        <section class="elements">
+          <template id="elements-template">
+            <div class="elements__element">
+              <div class="element__delete-buttom"></div>
+              <img class="elements__img" src=".." alt=".." />
+              <div class="elements__tag">
+                <p class="elements__title">Yosemite Valley</p>
+                <div class="elements__like-buttom-area">
+                  <button class="elements__like-buttom"></button>
+                </div>
+              </div>
             </div>
-            <div class="card__modal-container">
-                <button class="card__modal-close-button"> </button>
-                <h2 class="card__modal-header">New Place</h2>
-                <form class="card__modal-form">
-                    <div class="card__modal-space">
-                        <input type="text" class="card__modal-input card__modal-input-1" name="Title"
-                            placeholder="Title" required>
-                    </div>
-                    <div class="card__modal-space">
-                        <input type="text" class="card__modal-input card__modal-input-2" name="Image URL"
-                            placeholder="Image URL" required>
-                    </div>
-                    <button type="submit" class="card__modal-sumit-button"> Save</button>
-                </form>
-            </div>
+          </template>
         </section>
-
-
-        <!--header section of the page starts here -->
-        <header class="header">
-            <img class="header__logo" src="./Vector.png" alt="Around_the_U.S">
-        </header>
-        <main class="page__main">
-            <section class="profile">
-                <div class="profile__main">
-                    <img class="profile__image" src="./images/profile.jpg" alt="profile_picture">
-                    <div class="profile__content">
-                        <div class="profile__titles">
-                            <h2 class="profile__name"> Jacques Cousteau</h2>
-                            <p class="profile__subtitle">Explorer</p>
-                        </div>
-                        <button class="profile__edit-space">
-                        </button>
-                    </div>
-                </div>
-                <button class="profile__edit-button">
-                </button>
-
-            </section>
-            <div class="popup" id="image-popup">
-                <div class="popup__content popup__content_content_image">
-                    <button class="popup__close" type="button"></button>
-                    <img alt=".." class="popup__image" src=".." />
-                    <p class="popup__caption"></p>
-                </div>
-            </div>
-
-            <section class="elements">
-                <template id="elements-template">
-                    <div class="elements__element">
-                        <div class="element__delete-buttom"></div>
-                           <img class="elements__img" src=".." alt="..">
-                             <div class="elements__tag">
-                            <p class="elements__title">Yosemite Valley</p>
-                            <div class="elements__like-buttom-area">
-                                <button class="elements__like-buttom"> </button>
-
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </section>
-
-        </main>
-        <footer class="footer">
-            <p class="footer__copyrights">© 2022 Christopher Abreu</p>
-        </footer>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyrights">© 2022 Christopher Abreu</p>
+      </footer>
     </div>
     <script src="/scripts/index.js"></script>
     <!--content section of the page ends here -->
-</body>
-
+  </body>
 </html>

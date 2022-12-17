@@ -1,132 +1,130 @@
 .card__modal-header {
-    color: black;
-    margin: 34px 64px 54px 36px;
+  color: black;
+  margin: 34px 64px 54px 36px;
 }
 .card {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    max-width: inherit;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transition: visibility 0s 0.5s, opacity 0.5s linear;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  max-width: inherit;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+  z-index: 1;
 }
 
 .card__modal-box-opened {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: all;
-    transition: visibility 0s, opacity 0.5s linear;
-    z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
+  z-index: 1;
 }
 
 .card__modal-container {
-    align-content: center;
-    background-color: #fefefe;
-    width: 100%;
-    height: 100%;
-    max-width: 430px;
-    max-height: 330px;
-    margin-top: 195px;
-    z-index: 1;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+  align-content: center;
+  background-color: #fefefe;
+  width: 100%;
+  height: 100%;
+  max-width: 430px;
+  max-height: 330px;
+  margin-top: 195px;
+  z-index: 1;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__modal-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.card__modal-close-button{
-    position: absolute;
-    top: 147px;
-    right: 377px;
-    background: url(../images/CloseIcon.png);
-    background-repeat: no-repeat;
-    border: none;
-    width: 40px;
-    height: 40px;
-    transform: rotate(-1deg);
-    
+.card__modal-close-button {
+  position: absolute;
+  top: 147px;
+  right: 377px;
+  background: url(../images/CloseIcon.png);
+  background-repeat: no-repeat;
+  border: none;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-1deg);
 }
 
 .card__modal-close-button:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    cursor: pointer;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .card__modal-box-shade {
-    background-color: black;
-    opacity: 75%;
-    max-width: inherit;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    position: fixed;
+  background-color: black;
+  opacity: 75%;
+  max-width: inherit;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
-.card__modal-space{
-    display: flex;
-    flex-direction: column;
+.card__modal-space {
+  display: flex;
+  flex-direction: column;
 }
 .card__modal-input {
-    margin: 0px 36px 30px 36px;
-    width: 100%;
-    max-width: 358px;
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
+  margin: 0px 36px 30px 36px;
+  width: 100%;
+  max-width: 358px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
 }
 
 .card__modal-sumit-button {
-    width: 100%;
-    max-width: 358px;
-    height: 50px;
-    background-color: black;
-    color: white;
-    border-radius: 2px;
-    margin: 18px auto;
-    
+  width: 100%;
+  max-width: 358px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  margin: 18px auto;
 }
 
 .card__modal-sumit-button:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    cursor: pointer;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
-    .card__modal-container {
-        max-width: 282px;
-        max-height: 322px;
-        margin-top: 123px;
-    }
-    .card__modal-sumit-button {
-        max-width: 238px;
-        max-height: 46px;
-    }
-    .card__modal-input {
-        max-width: 238px;
-        margin: 0px 22px 30px 22px;
-    }
-    .card__modal-space{
-        max-width: 238px;
-    }
-    .card__modal-close-button {
-        top: 73px;
-        right: 19px;
-        width: 26px;
-        height: 26px;
-        background-size: contain;
-    }
-   
+  .card__modal-container {
+    max-width: 282px;
+    max-height: 322px;
+    margin-top: 123px;
+  }
+  .card__modal-sumit-button {
+    max-width: 238px;
+    max-height: 46px;
+  }
+  .card__modal-input {
+    max-width: 238px;
+    margin: 0px 22px 30px 22px;
+  }
+  .card__modal-space {
+    max-width: 238px;
+  }
+  .card__modal-close-button {
+    top: 73px;
+    right: 19px;
+    width: 26px;
+    height: 26px;
+    background-size: contain;
+  }
 }

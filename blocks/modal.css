@@ -14,6 +14,7 @@
     opacity: 0;
     pointer-events: none;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
+    z-index: 1;
 }
 
 .modal_box_opened {
