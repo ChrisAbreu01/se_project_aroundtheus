@@ -22,12 +22,11 @@
 
 .popup__content {
     border-radius: 10px 10px 0px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .popup__close {
-    position: absolute;
-    top: 260px;
-    right: 257px;
     background-image: url(../images/CloseIcon.png);
     background-repeat: no-repeat;
     border: none;
@@ -35,6 +34,7 @@
     height: 40px;
     transform: rotate(-1deg);
     background-color: transparent;
+    margin: 0px -49px 0 auto;
 }
 .popup__close:hover {
     -webkit-transform: scale(1.1);
@@ -47,6 +47,8 @@
     max-width: 75vw;
     max-height: 75vw;
     border-radius: 10px 10px 10px 10px;
+    min-width: 282px;
+    min-height: 282px;
 }
 
 .popup__caption {
@@ -59,8 +61,7 @@
         margin-top: 123px;
     }
     .popup__close {
-        top: -38px;
-    right: -27px;
+        margin: 0px -28px 0 auto;
     width: 26px;
     height: 26px;
         background-size: contain;

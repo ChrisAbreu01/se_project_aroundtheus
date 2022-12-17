@@ -81,16 +81,16 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".elements__img");
   const cardTitle = cardElement.querySelector(".elements__title");
-  const cardLikeButtom = cardElement.querySelector(".elements__like-buttom");
-  const deleteCard = cardElement.querySelector(".element__delete-buttom");
+  const cardLikeButton = cardElement.querySelector(".elements__like-button");
+  const deleteCard = cardElement.querySelector(".element__delete-button");
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardTitle.textContent = data.name;
   cardImage.addEventListener("click", () => {
     handlePreviewPicture(data);
   });
-  cardLikeButtom.addEventListener("click", () =>
-    cardLikeButtom.classList.toggle("elements__like-buttom-black")
+  cardLikeButton.addEventListener("click", () =>
+    cardLikeButton.classList.toggle("elements__like-button-black")
   );
   deleteCard.addEventListener("click", function () {
     const listItem = deleteCard.closest(".elements__element");
@@ -128,7 +128,6 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardModalDisplay);
-  
 }
 
 cardFormElement.addEventListener("submit", handleCardFormSubmit);

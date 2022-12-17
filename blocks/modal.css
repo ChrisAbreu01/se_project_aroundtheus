@@ -31,7 +31,7 @@
     height: 100%;
     max-width: 430px;
     max-height: 330px;
-    margin-top: 195px;
+    margin: 0 auto;
     z-index: 1;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
@@ -43,17 +43,26 @@
     display: flex;
     flex-direction: column;
 }
-
+.modal-box-close-container{
+    margin: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  max-height: 370px;
+  margin-top: 148px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 .modal__close-button {
-    position: absolute;
-    top: 147px;
-    right: 377px;
     background: url(../images/CloseIcon.png);
     background-repeat: no-repeat;
     border: none;
     width: 40px;
     height: 40px;
     transform: rotate(-1deg);
+    margin: 4px 0px 0 auto;
     
 }
 
@@ -109,7 +118,7 @@
     .modal__container {
         max-width: 282px;
         max-height: 322px;
-        margin-top: 123px;
+
     }
     .modal__sumit-button {
         max-width: 238px;
@@ -123,10 +132,14 @@
         max-width: 238px;
     }
     .modal__close-button {
-        top: 73px;
-        right: 19px;
         width: 26px;
+        min-width: 26px;
+        min-height: 26px;
         height: 26px;
         background-size: contain;
     }
+    .modal-box-close-container{
+        max-width: 340px;
+        max-height: 322px;
+      }
 }

@@ -83,7 +83,7 @@
                     border-radius: 2px;
                     display: flex;
                     margin: 32px 0 0 0;
-                    background-image: url(../images/addbuttom.png);
+                    background-image: url(../images/addbutton.png);
                     background-repeat: no-repeat;
                     background-color: black;
                     background-position: center;
@@ -177,7 +177,7 @@
                         margin: 0;
                     }
 
-                    .profile__buttom {
+                    .profile__button {
                         width: 282px;
                         height: 50px;
                         margin: 36px 0 0 0;

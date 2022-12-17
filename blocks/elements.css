@@ -23,14 +23,14 @@
     border-radius: 10px;
     margin: 0;
 }
-.element__delete-buttom{
+.element__delete-button{
     position: absolute;
     background-image: url(../images/Trash.png);
     width: 18px;
     height: 18px;
     margin: 24px 0 0 250px;
 }
-.element__delete-buttom:hover{
+.element__delete-button:hover{
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -39,12 +39,12 @@
 
 }
 
-.elements__like-buttom-area{
+.elements__like-button-area{
     width: 21px;
     height: 19px;
     grid-area: like;
 }
-.elements__like-buttom { 
+.elements__like-button { 
     width: 21px;
     height: 19px;
     background-image: url(../images/likeheart.svg);
@@ -55,11 +55,11 @@
     overflow: visible;
     background-color: transparent;
 }
-.elements__like-buttom-black{
+.elements__like-button-black{
     background-image: url(../images/Vectorblack.png);
 }
 
-.elements__like-buttom:hover {
+.elements__like-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
