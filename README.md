@@ -7,7 +7,7 @@ From Homeland to Homeland
   
 **Intro**    
   
-This is a project that showcases the hometowns of some of Practicum's tutors and personel, they share some interesting information about the places they come from, share some of there culture and offer to buy as and NFT pictures of their hometowns.
+This is a project that showcases the hometowns of some of Practicum's tutors and personel, they share some interesting information about the places they come from, share some of there culture and  pictures of their hometowns.
   
 **Tecnologies**  
   
