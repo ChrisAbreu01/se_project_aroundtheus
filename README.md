@@ -18,5 +18,4 @@ in this project we implement useful tecnologies just to name some: flex-box, gri
   Use this website as a blueprint for new websites, improve and scale the project for bigger needs. 
 
 **link to the project** 
-  https://chrisabreu01.github.io/web_project_3/
-  https://github.com/ChrisAbreu01/web_project_3.git
+  https://github.com/ChrisAbreu01/se_project_aroundtheus.git
