@@ -1,0 +1,12 @@
+.form{
+
+}
+.form__input{
+
+}
+.form__input_type_error {
+    border-bottom-color: red;
+  } 
+  .form__input-error_active{
+    visibility: visible;
+  }

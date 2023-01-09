@@ -21,63 +21,70 @@
         <div class="modal__box-shade"></div>
         <div class="modal-box-close-container">
           <button class="modal__close-button"></button>
-        <div class="modal__container">
-          <h2 class="modal__header">Edit profile</h2>
-          <form class="modal__form">
-            <div class="modal__space">
-              <input
-                type="text"
-                class="modal__input modal__input-1"
-                name="Name"
-                placeholder="Name"
-                required
-              />
-            </div>
-            <div class="modal__space">
-              <input
-                type="text"
-                class="modal__input modal__input-2"
-                name="Description"
-                placeholder="Description"
-                required
-              />
-            </div>
-            <button type="submit" class="modal__sumit-button">Save</button>
-          </form>
+          <div class="modal__container">
+            <h2 class="modal__header">Edit profile</h2>
+            <form class="modal__form form">
+              <div class="modal__space">
+                <input
+                  type="text"
+                  id="modal-name-input"
+                  class="modal__input modal__input-1 form__input"
+                  name="Name"
+                  placeholder="Name"
+                  minlength="2" maxlength="40"
+                  required
+                />
+                <span class=" modal-name-input-error form__input-error">Please fill out this field.</span>
+              </div>
+              <div class="modal__space">
+                <input
+                  type="text"
+                  id="modal-description-input"
+                  class="modal__input modal__input-2 form__input"
+                  name="Description"
+                  placeholder="Description"
+                  minlength="2" maxlength="200"
+                  required
+                />
+                <span class=" modal-description-input-error form__input-error">Please fill out this field.</span>
+              </div>
+              <button type="submit" class="modal__sumit-button">Save</button>
+            </form>
+          </div>
         </div>
-      </div>
       </section>
       <!--The adding card modal box section starts here -->
       <section class="card">
-        
         <div class="card__modal-box-shade"></div>
         <div class="card__modal-box-close-container">
           <button class="card__modal-close-button"></button>
-        <div class="card__modal-container">
-          <h2 class="card__modal-header">New Place</h2>
-          <form class="card__modal-form">
-            <div class="card__modal-space">
-              <input
-                type="text"
-                class="card__modal-input card__modal-input-1"
-                name="Title"
-                placeholder="Title"
-                required
-              />
-            </div>
-            <div class="card__modal-space">
-              <input
-                type="text"
-                class="card__modal-input card__modal-input-2"
-                name="Image URL"
-                placeholder="Image URL"
-                required
-              />
-            </div>
-            <button type="submit" class="card__modal-sumit-button">Save</button>
-          </form>
+          <div class="card__modal-container">
+            <h2 class="card__modal-header">New Place</h2>
+            <form class="card__modal-form">
+              <div class="card__modal-space">
+                <input
+                  type="text"
+                  class="card__modal-input card__modal-input-1"
+                  name="Title"
+                  placeholder="Title"
+                  required
+                />
+              </div>
+              <div class="card__modal-space">
+                <input
+                  type="text"
+                  class="card__modal-input card__modal-input-2"
+                  name="Image URL"
+                  placeholder="Image URL"
+                  required
+                />
+              </div>
+              <button type="submit" class="card__modal-sumit-button">
+                Save
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
       </section>
 
       <!--header section of the page starts here -->
@@ -110,7 +117,7 @@
             <p class="popup__caption"></p>
           </div>
         </div>
-<!--the element template  starts here -->
+        <!--the element template  starts here -->
         <section class="elements">
           <template id="elements-template">
             <div class="elements__element">
