@@ -135,70 +135,47 @@ cardFormElement.addEventListener("submit", handleCardFormSubmit);
 const formElement = document.querySelector(".form");
 const formInput = formElement.querySelector(".form__input");
 const showInputError = (formElement, inputElement, errorMessage) => {
-  // Find the error message element inside the very function
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  // The rest remains unchanged
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
   errorElement.classList.add("form__input-error_active");
 };
 
 const hideInputError = (formElement, inputElement) => {
-  // Find the error message element
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  // The rest remains unchanged
   inputElement.classList.remove("form__input_type_error");
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
-}; 
+};
 const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
-    // The parameter of showInputError() is now a form,
-    // which contains a field to be checked
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    // The same for hideInputError(), Its parameter is now a form,
-    // which contains a field to be checked
     hideInputError(formElement, inputElement);
   }
-}; 
+};
 
 formElement.addEventListener("submit", function (evt) {
   evt.preventDefault();
 });
 
 const setEventListeners = (formElement) => {
-  // Find all fields inside the form, and
-  // make an array from them using the Array.from() method
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
 
-  // Iterate over the resulting array
   inputList.forEach((inputElement) => {
-    // add the input event handler to each field
     inputElement.addEventListener("input", () => {
-      // Call the isValid() function inside the callback,
-      // and pass the form and the element to be checked to it
-      isValid(formElement, inputElement)
+      isValid(formElement, inputElement);
     });
   });
-}; 
+};
 const enableValidation = () => {
-  // It will find all forms with the specified class in DOM, and
-  // make an array from them using the Array.from() method
   const formList = Array.from(document.querySelectorAll(".form"));
 
-  // Iterate over the resulting array
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
-      // Cancel default behavior for each form
       evt.preventDefault();
     });
-
-    // Call the setEventListeners() function for each form,
-    // taking a form element as an argument
     setEventListeners(formElement);
   });
 };
-
-// Call the function
-enableValidation(); 
+enableValidation();
