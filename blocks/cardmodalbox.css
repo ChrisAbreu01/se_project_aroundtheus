@@ -90,7 +90,6 @@ line-height: 15px;
 .card__modal-box-shade {
   background-color: black;
   opacity: 75%;
-  max-width: inherit;
   margin: 0;
   height: 100%;
   width: 100%;

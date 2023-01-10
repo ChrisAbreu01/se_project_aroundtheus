@@ -1,30 +1,29 @@
 const initialCards = [
   {
-    name: "Yosemite valley",
-    link: "./images/yosemity.jpg",
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
   },
   {
     name: "Lake Louise",
-    link: "./images/lakelois.jpg",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
   },
   {
     name: "Bald Mountains",
-    link: "./images/baldmountains.jpg",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
   },
   {
     name: "Latemar",
-    link: "./images/latemar.jpg",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
   },
   {
     name: "Vanoise National Park",
-    link: "./images/vanoise.jpg",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
   },
   {
     name: "Lago di Braies",
-    link: "./images/lagodeibraes.jpg",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
-
 const profileModalBoxOpen = document.querySelector(".profile__edit-space");
 const profileModalBoxClose = document.querySelector(".modal__close-button");
 const cardModalBoxOpen = document.querySelector(".profile__edit-button");
@@ -133,6 +132,7 @@ function handleCardFormSubmit(evt) {
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 const profileModalDisplayShade = profileModalDisplay.querySelector(".modal__box-shade");
+const cardModalDisplayShade = cardModalDisplay.querySelector(".card__modal-box-shade");
 function escCloseProfilePopUp(evt){
   if (evt.key === "Escape"){
     closeModal(profileModalDisplay);
@@ -150,14 +150,14 @@ function escCloseImagePopup(evt) {
 }
 function cardClickOverlay(event) {
   if (event.target.classList.contains("modal-selector")) {
-    closePopup(cardModalDisplay);
+    closeModal(cardModalDisplay);
   }
 }
 
 function profileClickOverlay(event) {
   if (event.target.classList.contains("modal-selector")) {
     console.log("klk");
-    closePopup(profileModalDisplay);
+    closeModal(profileModalDisplay);
   }
 }
 
@@ -173,5 +173,5 @@ document.addEventListener("keydown", escCloseCardPopUp);
 document.addEventListener("keydown", escCloseImagePopup);
 
 profileModalDisplayShade.addEventListener("click", profileClickOverlay);
-cardModalDisplay.addEventListener("click", cardClickOverlay);
+cardModalDisplayShade.addEventListener("click", cardClickOverlay);
 imageView.addEventListener("click", imageClickOverlay);
