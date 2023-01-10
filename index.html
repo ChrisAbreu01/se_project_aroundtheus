@@ -17,8 +17,8 @@
     <!--body section of the page starts here -->
     <div class="page__content">
       <!--The edit profile modal box section starts here -->
-      <section class="modal">
-        <div class="modal__box-shade"></div>
+      <section class="modal ">
+        <div class="modal__box-shade modal-selector"></div>
         <div class="modal-box-close-container">
           <button class="modal__close-button"></button>
           <div class="modal__container">
@@ -48,38 +48,43 @@
                 />
                 <span class=" modal-description-input-error form__input-error">Please fill out this field.</span>
               </div>
-              <button type="submit" class="modal__sumit-button">Save</button>
+              <button type="submit" class="modal__sumit-button form__submit">Save</button>
             </form>
           </div>
         </div>
       </section>
       <!--The adding card modal box section starts here -->
-      <section class="card">
-        <div class="card__modal-box-shade"></div>
+      <section class="card ">
+        <div class="card__modal-box-shade modal-selector"></div>
         <div class="card__modal-box-close-container">
           <button class="card__modal-close-button"></button>
           <div class="card__modal-container">
             <h2 class="card__modal-header">New Place</h2>
-            <form class="card__modal-form">
+            <form class="card__modal-form form">
               <div class="card__modal-space">
                 <input
                   type="text"
-                  class="card__modal-input card__modal-input-1"
+                  id="card-modal-title-input"
+                  class="card__modal-input card__modal-input-1 form__input"
                   name="Title"
                   placeholder="Title"
+                  minlength="1" maxlength="30"
                   required
                 />
+                <span class="card-modal-title-input-error form__input-error">Please fill out this field.</span>
               </div>
               <div class="card__modal-space">
                 <input
-                  type="text"
-                  class="card__modal-input card__modal-input-2"
+                  type="url"
+                  id="card-modal-url-input"
+                  class="card__modal-input card__modal-input-2 form__input"
                   name="Image URL"
                   placeholder="Image URL"
                   required
                 />
+                <span class="card-modal-url-input-error form__input-error">Please fill out this field.</span>
               </div>
-              <button type="submit" class="card__modal-sumit-button">
+              <button type="submit" class="card__modal-sumit-button form__submit">
                 Save
               </button>
             </form>
@@ -110,7 +115,7 @@
           <button class="profile__edit-button"></button>
         </section>
         <!--pop up element of the page starts here -->
-        <div class="popup" id="image-popup">
+        <div class="popup modal-selector" id="image-popup">
           <div class="popup__content popup__content_content_image">
             <button class="popup__close" type="button"></button>
             <img alt=".." class="popup__image" src=".." />

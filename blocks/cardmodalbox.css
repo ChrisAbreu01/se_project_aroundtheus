@@ -49,7 +49,22 @@
   display: flex;
   flex-direction: column;
 }
-
+.card-modal-title-input-error{
+  color: red;
+margin: 0px 36px 7px 36px;
+visibility: hidden;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+}
+.card-modal-url-input-error{
+  color: red;
+margin: 0px 36px 7px 36px;
+visibility: hidden;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+}
 .card__modal-form {
   display: flex;
   flex-direction: column;
@@ -87,7 +102,7 @@
   flex-direction: column;
 }
 .card__modal-input {
-  margin: 0px 36px 30px 36px;
+  margin: 0px 36px 5px 36px;
   width: 100%;
   max-width: 358px;
   border: none;

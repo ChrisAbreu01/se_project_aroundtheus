@@ -161,10 +161,12 @@ formElement.addEventListener("submit", function (evt) {
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-
+  const buttonElement = formElement.querySelector(".form__submit");
+  toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       isValid(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -178,4 +180,59 @@ const enableValidation = () => {
     setEventListeners(formElement);
   });
 };
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("form__submit_inactive");
+  } else {
+    buttonElement.classList.remove("form__submit_inactive");
+  }
+};
 enableValidation();
+const profileModalDisplayShade = profileModalDisplay.querySelector(".modal__box-shade");
+function escCloseProfilePopUp(evt){
+  if (evt.key === "Escape"){
+    closeModal(profileModalDisplay);
+  }
+}
+function escCloseCardPopUp(evt){
+  if (evt.key === "Escape"){
+    closeModal(cardModalDisplay);
+}
+}
+function escCloseImagePopup(evt) {
+  if (evt.key === "Escape") {
+    closeModal(imageView);
+  }
+}
+function cardClickOverlay(event) {
+  if (event.target.classList.contains("modal-selector")) {
+    closePopup(cardModalDisplay);
+  }
+}
+
+function profileClickOverlay(event) {
+  if (event.target.classList.contains("modal-selector")) {
+    console.log("klk");
+    closePopup(profileModalDisplay);
+  }
+}
+
+function imageClickOverlay(event) {
+  if (event.target.classList.contains("modal-selector")) {
+    closeModal(imageView);
+  }
+}
+document.addEventListener("keydown", escCloseProfilePopUp);
+
+document.addEventListener("keydown", escCloseCardPopUp);
+
+document.addEventListener("keydown", escCloseImagePopup);
+
+profileModalDisplayShade.addEventListener("click", profileClickOverlay);
+cardModalDisplay.addEventListener("click", cardClickOverlay);
+imageView.addEventListener("click", imageClickOverlay);
