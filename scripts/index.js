@@ -24,6 +24,15 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
+const validationConfig = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__submit",
+  inactiveButtonClass: "form__submit_inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active"
+}
 const profileModalBoxOpen = document.querySelector(".profile__edit-space");
 const profileModalBoxClose = document.querySelector(".modal__close-button");
 const cardModalBoxOpen = document.querySelector(".profile__edit-button");
