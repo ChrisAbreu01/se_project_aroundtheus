@@ -138,7 +138,7 @@ generateCards();
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+  const inputList = Array.from(document.querySelectorAll(validationConfig.inputSelector));
   const buttonElement = evt.target.querySelector(".form__submit");
   const cardElement = getCardElement({
     name: cardTitleInput.value,
@@ -147,7 +147,7 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardModalDisplay);
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, validationConfig.inactiveButtonClass);
 }
 
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
