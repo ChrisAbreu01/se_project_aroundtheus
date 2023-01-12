@@ -83,7 +83,7 @@ line-height: 15px;
 .modal__close-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
-    transform: opacity  ;
+    transform: opacity ;
     cursor: pointer;
 }
 
