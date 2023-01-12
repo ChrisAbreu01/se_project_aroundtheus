@@ -157,8 +157,6 @@ const cardModalDisplayShade = cardModalDisplay.querySelector(".card__modal-box-s
 
 function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) { 
-    console.log(evt.currentTarget);
-    console.log(evt.Target);
     closeModal(imageView);
     closeModal(profileModalDisplay);
     closeModal(cardModalDisplay);
