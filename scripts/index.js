@@ -138,7 +138,8 @@ generateCards();
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-
+  const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+  const buttonElement = evt.target.querySelector(".form__submit");
   const cardElement = getCardElement({
     name: cardTitleInput.value,
     link: cardUrlInput.value,
@@ -146,7 +147,7 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardModalDisplay);
-  toggleButtonState(validationConfig.inputSelector, validationConfig.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement);
 }
 
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
@@ -154,34 +155,16 @@ cardFormElement.addEventListener("submit", handleCardFormSubmit);
 const profileModalDisplayShade = profileModalDisplay.querySelector(".modal__box-shade");
 const cardModalDisplayShade = cardModalDisplay.querySelector(".card__modal-box-shade");
 
-/*function cardClickOverlay(event) {
-  if (event.target.classList.contains("modal-selector")) {
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) { 
+    console.log(evt.currentTarget);
+    console.log(evt.Target);
+    closeModal(imageView);
+    closeModal(profileModalDisplay);
     closeModal(cardModalDisplay);
   }
 }
 
-function profileClickOverlay(event) {
-  if (event.target.classList.contains("modal-selector")) {
-    closeModal(profileModalDisplay);
-  }
-}
-
-function imageClickOverlay(event) {
-  if (event.target.classList.contains("modal-selector")) {
-    closeModal(imageView);
-  }
-}*/
-function closeModalOnRemoteClick(evt) {
-  // target is the element on which the event happened
-  // currentTarget is the modal
-  // if they are the same then we should close the modal
-  if (evt.target != evt.currentTarget) { 
-    console.log(evt.currentTarget);
-    console.log(evt.Target);
-   closeModal(evt.currentTarget);
-  }
-}
-
 profileModalDisplayShade.addEventListener("click",closeModalOnRemoteClick);
-cardModalDisplay.addEventListener("click", closeModalOnRemoteClick);
+cardModalDisplayShade.addEventListener("click", closeModalOnRemoteClick);
 imageView.addEventListener("click", closeModalOnRemoteClick);
