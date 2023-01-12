@@ -56,10 +56,20 @@ const imageView = document.querySelector(".popup");
 
 function openModal(modal) {
   modal.classList.add("modal_box_opened");
+  modal.classList.add("popup_open");
+  document.addEventListener("keydown", closeModalByEscape);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_box_opened");
+  modal.classList.remove("popup_open");
+  document.removeEventListener("keydown", closeModalByEscape);
 }
+function closeModalByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector('.popup_open');
+     closeModal(openedModal);
+  }
+} 
 profileModalBoxOpen.addEventListener("click", () => {
   openModal(profileModalDisplay);
   nameInput.value = profileName.textContent;
@@ -90,7 +100,7 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".elements__img");
   const cardTitle = cardElement.querySelector(".elements__title");
   const cardLikeButton = cardElement.querySelector(".elements__like-button");
-  const deleteCard = cardElement.querySelector(".element__delete-button");
+  const deleteCardButton = cardElement.querySelector(".element__delete-button");
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardTitle.textContent = data.name;
@@ -100,8 +110,8 @@ function getCardElement(data) {
   cardLikeButton.addEventListener("click", () =>
     cardLikeButton.classList.toggle("elements__like-button-black")
   );
-  deleteCard.addEventListener("click", function () {
-    const listItem = deleteCard.closest(".elements__element");
+  deleteCardButton.addEventListener("click", function () {
+    const listItem = deleteCardButton.closest(".elements__element");
     listItem.remove();
   });
   return cardElement;
@@ -136,28 +146,15 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardModalDisplay);
+  toggleButtonState(validationConfig.inputSelector, validationConfig.submitButtonSelector);
 }
 
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 const profileModalDisplayShade = profileModalDisplay.querySelector(".modal__box-shade");
 const cardModalDisplayShade = cardModalDisplay.querySelector(".card__modal-box-shade");
-function escCloseProfilePopUp(evt){
-  if (evt.key === "Escape"){
-    closeModal(profileModalDisplay);
-  }
-}
-function escCloseCardPopUp(evt){
-  if (evt.key === "Escape"){
-    closeModal(cardModalDisplay);
-}
-}
-function escCloseImagePopup(evt) {
-  if (evt.key === "Escape") {
-    closeModal(imageView);
-  }
-}
-function cardClickOverlay(event) {
+
+/*function cardClickOverlay(event) {
   if (event.target.classList.contains("modal-selector")) {
     closeModal(cardModalDisplay);
   }
@@ -165,7 +162,6 @@ function cardClickOverlay(event) {
 
 function profileClickOverlay(event) {
   if (event.target.classList.contains("modal-selector")) {
-    console.log("klk");
     closeModal(profileModalDisplay);
   }
 }
@@ -174,13 +170,18 @@ function imageClickOverlay(event) {
   if (event.target.classList.contains("modal-selector")) {
     closeModal(imageView);
   }
+}*/
+function closeModalOnRemoteClick(evt) {
+  // target is the element on which the event happened
+  // currentTarget is the modal
+  // if they are the same then we should close the modal
+  if (evt.target != evt.currentTarget) { 
+    console.log(evt.currentTarget);
+    console.log(evt.Target);
+   closeModal(evt.currentTarget);
+  }
 }
-document.addEventListener("keydown", escCloseProfilePopUp);
 
-document.addEventListener("keydown", escCloseCardPopUp);
-
-document.addEventListener("keydown", escCloseImagePopup);
-
-profileModalDisplayShade.addEventListener("click", profileClickOverlay);
-cardModalDisplayShade.addEventListener("click", cardClickOverlay);
-imageView.addEventListener("click", imageClickOverlay);
+profileModalDisplayShade.addEventListener("click",closeModalOnRemoteClick);
+cardModalDisplay.addEventListener("click", closeModalOnRemoteClick);
+imageView.addEventListener("click", closeModalOnRemoteClick);

@@ -55,9 +55,7 @@ line-height: 15px;
     color: red;
     margin: 0px 36px 7px 36px;
     visibility: hidden;
-    font-weight: 400;
-font-size: 12px;
-line-height: 15px;
+    font-size: 12px;
 }
 .modal-box-close-container{
     margin: 0;
@@ -85,7 +83,7 @@ line-height: 15px;
 .modal__close-button:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    transform: opacity  ;
     cursor: pointer;
 }
 
@@ -123,9 +121,8 @@ line-height: 15px;
 }
 
 .modal__sumit-button:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    opacity: 0.5;
+    transition: opacity 0.3s, visibility 0.3s;
     cursor: pointer;
 }
 
