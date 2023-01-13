@@ -19,7 +19,7 @@ const hideInputError = (
   inputElement.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
 };
-const isValid = (formElement, inputElement) => {
+const toggleInputError = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(
       formElement,
@@ -47,7 +47,7 @@ const setEventListeners = (formElement,inputSelector  ) => {
   toggleButtonState(inputList, buttonElement, validationConfig.inactiveButtonClass);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
-      isValid(formElement, inputElement);
+      toggleInputError(formElement, inputElement);
       toggleButtonState(
         inputList,
         buttonElement,
@@ -57,7 +57,6 @@ const setEventListeners = (formElement,inputSelector  ) => {
   });
 };
 const enableValidation = (formSelector,inputSelector) => {
-   formElement = document.querySelector(formSelector);
   const formList = Array.from(
     document.querySelectorAll(formSelector)
   );

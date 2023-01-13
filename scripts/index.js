@@ -31,8 +31,8 @@ const validationConfig = {
   submitButtonSelector: ".form__submit",
   inactiveButtonClass: "form__submit_inactive",
   inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active"
-}
+  errorClass: "form__input-error_active",
+};
 const profileModalBoxOpen = document.querySelector(".profile__edit-space");
 const profileModalBoxClose = document.querySelector(".modal__close-button");
 const cardModalBoxOpen = document.querySelector(".profile__edit-button");
@@ -66,10 +66,10 @@ function closeModal(modal) {
 }
 function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
-    const openedModal = document.querySelector('.popup_open');
-     closeModal(openedModal);
+    const openedModal = document.querySelector(".popup_open");
+    closeModal(openedModal);
   }
-} 
+}
 profileModalBoxOpen.addEventListener("click", () => {
   openModal(profileModalDisplay);
   nameInput.value = profileName.textContent;
@@ -138,7 +138,9 @@ generateCards();
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const inputList = Array.from(document.querySelectorAll(validationConfig.inputSelector));
+  const inputList = Array.from(
+    document.querySelectorAll(validationConfig.inputSelector)
+  );
   const buttonElement = evt.target.querySelector(".form__submit");
   const cardElement = getCardElement({
     name: cardTitleInput.value,
@@ -147,22 +149,24 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardModalDisplay);
-  toggleButtonState(inputList, buttonElement, validationConfig.inactiveButtonClass);
+  toggleButtonState([cardTitleInput, cardUrlInput], buttonElement, validationConfig.inactiveButtonClass);
 }
 
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
 
-const profileModalDisplayShade = profileModalDisplay.querySelector(".modal__box-shade");
-const cardModalDisplayShade = cardModalDisplay.querySelector(".card__modal-box-shade");
+const profileModalDisplayShade =
+  profileModalDisplay.querySelector(".modal__box-shade");
+const cardModalDisplayShade = cardModalDisplay.querySelector(
+  ".card__modal-box-shade"
+);
 
 function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) { 
-    closeModal(imageView);
-    closeModal(profileModalDisplay);
-    closeModal(cardModalDisplay);
+  if (evt.target === evt.currentTarget) {
+    const openModal = document.querySelector(".popup_open");
+    closeModal(openModal);
   }
 }
 
-profileModalDisplayShade.addEventListener("click",closeModalOnRemoteClick);
+profileModalDisplayShade.addEventListener("click", closeModalOnRemoteClick);
 cardModalDisplayShade.addEventListener("click", closeModalOnRemoteClick);
 imageView.addEventListener("click", closeModalOnRemoteClick);
