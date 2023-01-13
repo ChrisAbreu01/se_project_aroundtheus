@@ -34,25 +34,27 @@ const validationConfig = {
   errorClass: "form__input-error_active",
 };
 const profileModalBoxOpen = document.querySelector(".profile__edit-space");
-const profileModalBoxClose = document.querySelector(".modal__close-button");
+const profileModalBoxClose = document.querySelector("#modal__close-button");
 const cardModalBoxOpen = document.querySelector(".profile__edit-button");
-const cardModalBoxClose = document.querySelector(".card__modal-close-button");
-const cardModalDisplay = document.querySelector(".card");
-const profileModalDisplay = document.querySelector(".modal");
+
+const cardModalBoxClose = document.querySelector("#modal__card-close-button");
+
+const cardModalDisplay = document.querySelector("#card");
+const profileModalDisplay = document.querySelector("#profile__modal");
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document
   .querySelector("#elements-template")
   .content.querySelector(".elements__element");
-const profileFormElement = document.querySelector(".modal__form");
-const cardFormElement = document.querySelector(".card__modal-form");
-const nameInput = document.querySelector(".modal__input-1");
-const jobInput = document.querySelector(".modal__input-2");
+const profileFormElement = document.querySelector("#modal__form");
+const cardFormElement = document.querySelector("#card__modal-form");
+const nameInput = document.querySelector("#modal-name-input");
+const jobInput = document.querySelector("#modal-description-input");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__subtitle");
-const cardTitleInput = document.querySelector(".card__modal-input-1");
-const cardUrlInput = document.querySelector(".card__modal-input-2");
-const imageModalClose = document.querySelector(".popup__close");
-const imageView = document.querySelector(".popup");
+const cardTitleInput = document.querySelector("#modal-input-title");
+const cardUrlInput = document.querySelector("#modal-input-url");
+const imageModalClose = document.querySelector("#image__popup-close");
+const imageView = document.querySelector(".modal__image-popup");
 
 function openModal(modal) {
   modal.classList.add("modal_box_opened");
@@ -116,8 +118,8 @@ function getCardElement(data) {
   });
   return cardElement;
 }
-const imageElement = document.querySelector(".popup__image");
-const imageCaption = document.querySelector(".popup__caption");
+const imageElement = document.querySelector(".modal__image");
+const imageCaption = document.querySelector(".modal__caption");
 
 function handlePreviewPicture(data) {
   imageElement.src = data.link;
@@ -138,9 +140,6 @@ generateCards();
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const inputList = Array.from(
-    document.querySelectorAll(validationConfig.inputSelector)
-  );
   const buttonElement = evt.target.querySelector(".form__submit");
   const cardElement = getCardElement({
     name: cardTitleInput.value,
@@ -149,7 +148,11 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardModalDisplay);
-  toggleButtonState([cardTitleInput, cardUrlInput], buttonElement, validationConfig.inactiveButtonClass);
+  toggleButtonState(
+    [cardTitleInput, cardUrlInput],
+    buttonElement,
+    validationConfig.inactiveButtonClass
+  );
 }
 
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
@@ -157,7 +160,7 @@ cardFormElement.addEventListener("submit", handleCardFormSubmit);
 const profileModalDisplayShade =
   profileModalDisplay.querySelector(".modal__box-shade");
 const cardModalDisplayShade = cardModalDisplay.querySelector(
-  ".card__modal-box-shade"
+  "#card__modal-box-shade"
 );
 
 function closeModalOnRemoteClick(evt) {
