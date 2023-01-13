@@ -158,7 +158,7 @@
   width: 100%;
   margin: 0 auto;
 }
-.modal__image__content {
+.modal__image-content {
   border-radius: 10px 10px 0px 0px;
   display: flex;
   flex-direction: column;
