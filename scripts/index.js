@@ -54,7 +54,7 @@ const profileJob = document.querySelector(".profile__subtitle");
 const cardTitleInput = document.querySelector("#modal-input-title");
 const cardUrlInput = document.querySelector("#modal-input-url");
 const imageModalClose = document.querySelector("#image__popup-close");
-const imageView = document.querySelector(".modal__image-popup");
+const imageView = document.querySelector("#modal__image-popup");
 
 function openModal(modal) {
   modal.classList.add("modal_box_opened");
