@@ -11,13 +11,9 @@ const validationConfig = {
 const profileModalBoxOpen = document.querySelector(".profile__edit-space");
 const profileModalBoxClose = document.querySelector("#modal__close-button");
 const cardModalBoxOpen = document.querySelector(".profile__edit-button");
-
 const cardModalBoxClose = document.querySelector("#modal__card-close-button");
-
 const cardModalDisplay = document.querySelector("#card");
 const profileModalDisplay = document.querySelector("#profile__modal");
-
-
 const profileFormElement = document.querySelector("#modal__form");
 const cardFormElement = document.querySelector("#card__modal-form");
 const nameInput = document.querySelector("#modal-name-input");
