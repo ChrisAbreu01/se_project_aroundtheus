@@ -1,3 +1,4 @@
+import {closeModal} from "./index.js"
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -37,63 +38,63 @@ class Card {
       .cloneNode(true);
     return _cardElement;
   }
-  handlePreviewPicture(data) {
+  _handlePreviewPicture(data) {
     const imageElement = document.querySelector(".modal__image");
-const imageCaption = document.querySelector(".modal__caption");
-   imageElement.src = data.link;
-  imageElement.alt = data.name;
-  imageCaption.textContent = data.name;
-  openModal(imageView);
+    const imageCaption = document.querySelector(".modal__caption");
+    imageElement.src = data.link;
+    imageElement.alt = data.name;
+    imageCaption.textContent = data.name;
+    openModal(imageView);
   }
+
+
   _generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".elements__img").src = this._image;
     this._element.querySelector(".elements__title").textContent = this._text;
+    const _cardFormElement = document.querySelector("#card__modal-form");
     const cardLikeButton = this._element.querySelector(
       ".elements__like-button"
     );
-    const deleteCardButton = this._element.querySelector(
+    const _deleteCardButton = this._element.querySelector(
       ".element__delete-button"
     );
     const _cardImage = this._element.querySelector(".elements__img");
-    // cardTitle = _cardElement.querySelector(".elements__title");
-    //_cardImage.src = this._image;
-    //_cardImage.alt = this._text;
-    //cardTitle.textContent = this._text
-    
-    
+
     _cardImage.addEventListener("click", () => {
-        console.log(this);
-      this.handlePreviewPicture(data);
+      console.log(this);
+      this._handlePreviewPicture(data);
     });
     cardLikeButton.addEventListener("click", () =>
       cardLikeButton.classList.toggle("elements__like-button-black")
     );
-    deleteCardButton.addEventListener("click", function () {
-      const listItem = deleteCardButton.closest(".elements__element");
+    _deleteCardButton.addEventListener("click", function () {
+      const listItem = _deleteCardButton.closest(".elements__element");
       listItem.remove();
     });
+    _cardFormElement.addEventListener("submit", this.handleCardFormSubmit);
     return this._element;
   }
-
   
-
-  //handleCardFormSubmit(evt) {
-  //  evt.preventDefault();
-  //  const buttonElement = evt.target.querySelector(".form__submit");
-  //  const _cardElement = _generateCard({
-  //   name: cardTitleInput.value,
-  //   link: cardUrlInput.value,
-  //  });
-  //   cardsContainer.prepend(_cardElement);
-  //   cardFormElement.reset();
-  // closeModal(cardModalDisplay);
-  // toggleButtonState(
-  //  [cardTitleInput, cardUrlInput],
-  //  buttonElement,
-  //  validationConfig.inactiveButtonClass
-  // );
-  // }
+  handleCardFormSubmit(evt) {
+    evt.preventDefault();
+    const _cardTitleInput = document.querySelector("#modal-input-title");
+    const _cardUrlInput = document.querySelector("#modal-input-url");
+    const _buttonElement = evt.target.querySelector(".form__submit");
+    const _cardFormElement = document.querySelector("#card__modal-form");
+    const _cardsContainer = document.querySelector(".elements");
+    const _cardModalDisplay = document.querySelector("#card");
+    const newCard = new Card(_cardTitleInput.value, _cardUrlInput.value);
+    const _newCardElement = newCard._generateCard();
+    _cardsContainer.prepend(_newCardElement);
+    _cardFormElement.reset();
+    closeModal(_cardModalDisplay);
+    toggleButtonState(
+      [_cardTitleInput, _cardUrlInput],
+      _buttonElement,
+      validationConfig.inactiveButtonClass
+    );
+  }
 }
 initialCards.forEach((cardData) => {
   const cardsContainer = document.querySelector(".elements");

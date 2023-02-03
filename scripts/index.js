@@ -1,6 +1,6 @@
 
 
-const validationConfig = {
+export const validationConfig = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__submit",
@@ -15,13 +15,11 @@ const cardModalBoxClose = document.querySelector("#modal__card-close-button");
 const cardModalDisplay = document.querySelector("#card");
 const profileModalDisplay = document.querySelector("#profile__modal");
 const profileFormElement = document.querySelector("#modal__form");
-const cardFormElement = document.querySelector("#card__modal-form");
+
 const nameInput = document.querySelector("#modal-name-input");
 const jobInput = document.querySelector("#modal-description-input");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__subtitle");
-const cardTitleInput = document.querySelector("#modal-input-title");
-const cardUrlInput = document.querySelector("#modal-input-url");
 const imageModalClose = document.querySelector("#image__popup-close");
 const imageView = document.querySelector("#modal__image-popup");
 
@@ -30,7 +28,7 @@ function openModal(modal) {
   modal.classList.add("popup_open");
   document.addEventListener("keydown", closeModalByEscape);
 }
-function closeModal(modal) {
+export function closeModal(modal) {
   modal.classList.remove("modal_box_opened");
   modal.classList.remove("popup_open");
   document.removeEventListener("keydown", closeModalByEscape);
@@ -65,16 +63,10 @@ function handleProfileFormSubmit(evt) {
 
   closeModal(profileModalDisplay);
 }
-
-
-const imageElement = document.querySelector(".modal__image");
-const imageCaption = document.querySelector(".modal__caption");
-
-
 imageModalClose.addEventListener("click", () => {
   closeModal(imageView);
 });
-//cardFormElement.addEventListener("submit", handleCardFormSubmit);
+//
 
 const profileModalDisplayShade =
   profileModalDisplay.querySelector(".modal__box-shade");
