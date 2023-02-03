@@ -5,30 +5,30 @@ class Validation {
         this.inputSelector = inputSelector;
 
     }
-  showInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
+  _showInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(inputErrorClass);
     errorElement.classList.add(errorClass);
   };
 
-  hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
+  _hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(inputErrorClass);
     errorElement.classList.remove(errorClass);
   };
 
-  toggleInputError = (formElement, inputElement) => {
+  _toggleInputError = (formElement, inputElement) => {
     this.formElement = formElement;
     this.inputElement = inputElement;
     if (!inputElement.validity.valid) {
-      this.showInputError(
+      this._showInputError(
         this.formElement,
         this.inputElement,
         validationConfig.inputErrorClass,
         validationConfig.errorClass
       );
     } else {
-      this.hideInputError(
+      this._hideInputError(
         this.formElement,
         this.inputElement,
         validationConfig.inputErrorClass,
@@ -36,13 +36,13 @@ class Validation {
       );
     }
   };
-  hasInvalidInput = (inputList) => {
+  _hasInvalidInput = (inputList) => {
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
-  toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
-    if (this.hasInvalidInput(inputList)) {
+  _toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
+    if (this._hasInvalidInput(inputList)) {
       buttonElement.classList.add(inactiveButtonClass);
       buttonElement.disabled = true;
     } else {
@@ -55,15 +55,15 @@ class Validation {
     const buttonElement = formElement.querySelector(
       validationConfig.submitButtonSelector
     );
-    this.toggleButtonState(
+    this._toggleButtonState(
       inputList,
       buttonElement,
       validationConfig.inactiveButtonClass
     );
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        this.toggleInputError(formElement, inputElement);
-        this.toggleButtonState(
+        this._toggleInputError(formElement, inputElement);
+        this._toggleButtonState(
           inputList,
           buttonElement,
           validationConfig.inactiveButtonClass

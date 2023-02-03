@@ -1,4 +1,4 @@
-
+import * as selector from "./constants.js";
 
 export const validationConfig = {
   formSelector: ".form",
@@ -8,22 +8,7 @@ export const validationConfig = {
   inputErrorClass: "form__input_type_error",
   errorClass: "form__input-error_active",
 };
-const profileModalBoxOpen = document.querySelector(".profile__edit-space");
-const profileModalBoxClose = document.querySelector("#modal__close-button");
-const cardModalBoxOpen = document.querySelector(".profile__edit-button");
-const cardModalBoxClose = document.querySelector("#modal__card-close-button");
-const cardModalDisplay = document.querySelector("#card");
-const profileModalDisplay = document.querySelector("#profile__modal");
-const profileFormElement = document.querySelector("#modal__form");
-
-const nameInput = document.querySelector("#modal-name-input");
-const jobInput = document.querySelector("#modal-description-input");
-const profileName = document.querySelector(".profile__name");
-const profileJob = document.querySelector(".profile__subtitle");
-const imageModalClose = document.querySelector("#image__popup-close");
-const imageView = document.querySelector("#modal__image-popup");
-
-function openModal(modal) {
+export function openModal(modal) {
   modal.classList.add("modal_box_opened");
   modal.classList.add("popup_open");
   document.addEventListener("keydown", closeModalByEscape);
@@ -39,38 +24,38 @@ function closeModalByEscape(evt) {
     closeModal(openedModal);
   }
 }
-profileModalBoxOpen.addEventListener("click", () => {
-  openModal(profileModalDisplay);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+selector.profileModalBoxOpen.addEventListener("click", () => {
+  openModal(selector.profileModalDisplay);
+  selector.nameInput.value = selector.profileName.textContent;
+  selector.jobInput.value = selector.profileJob.textContent;
 });
-profileModalBoxClose.addEventListener("click", () => {
-  closeModal(profileModalDisplay);
+selector.profileModalBoxClose.addEventListener("click", () => {
+  closeModal(selector.profileModalDisplay);
 });
-cardModalBoxOpen.addEventListener("click", () => {
-  openModal(cardModalDisplay);
+selector.cardModalBoxOpen.addEventListener("click", () => {
+  openModal(selector.cardModalDisplay);
 });
-cardModalBoxClose.addEventListener("click", () => {
-  closeModal(cardModalDisplay);
+selector.cardModalBoxClose.addEventListener("click", () => {
+  closeModal(selector.cardModalDisplay);
 });
-profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+selector.profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
+  selector.profileName.textContent = selector.nameInput.value;
+  selector.profileJob.textContent = selector.jobInput.value;
 
-  closeModal(profileModalDisplay);
+  closeModal(selector.profileModalDisplay);
 }
-imageModalClose.addEventListener("click", () => {
-  closeModal(imageView);
+selector.imageModalClose.addEventListener("click", () => {
+  closeModal(selector.imageView);
 });
 //
 
 const profileModalDisplayShade =
-  profileModalDisplay.querySelector(".modal__box-shade");
-const cardModalDisplayShade = cardModalDisplay.querySelector(
+selector.profileModalDisplay.querySelector(".modal__box-shade");
+const cardModalDisplayShade = selector.cardModalDisplay.querySelector(
   "#card__modal-box-shade"
 );
 
@@ -83,4 +68,4 @@ function closeModalOnRemoteClick(evt) {
 
 profileModalDisplayShade.addEventListener("click", closeModalOnRemoteClick);
 cardModalDisplayShade.addEventListener("click", closeModalOnRemoteClick);
-imageView.addEventListener("click", closeModalOnRemoteClick);
+selector.imageView.addEventListener("click", closeModalOnRemoteClick);

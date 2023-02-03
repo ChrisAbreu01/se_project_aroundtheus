@@ -1,4 +1,5 @@
-import {closeModal} from "./index.js"
+import {closeModal, openModal} from "./index.js"
+import * as selector from "./constants.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -38,13 +39,12 @@ class Card {
       .cloneNode(true);
     return _cardElement;
   }
-  _handlePreviewPicture(data) {
-    const imageElement = document.querySelector(".modal__image");
-    const imageCaption = document.querySelector(".modal__caption");
-    imageElement.src = data.link;
-    imageElement.alt = data.name;
-    imageCaption.textContent = data.name;
-    openModal(imageView);
+  _handlePreviewPicture(link,name) {
+    
+    selector.imageElement.src = link;
+    selector.imageElement.alt = name;
+    selector.imageCaption.textContent =name;
+    openModal(selector.imageView);
   }
 
 
@@ -62,8 +62,7 @@ class Card {
     const _cardImage = this._element.querySelector(".elements__img");
 
     _cardImage.addEventListener("click", () => {
-      console.log(this);
-      this._handlePreviewPicture(data);
+      this._handlePreviewPicture(this._image, this._text);
     });
     cardLikeButton.addEventListener("click", () =>
       cardLikeButton.classList.toggle("elements__like-button-black")
@@ -78,27 +77,21 @@ class Card {
   
   handleCardFormSubmit(evt) {
     evt.preventDefault();
-    const _cardTitleInput = document.querySelector("#modal-input-title");
-    const _cardUrlInput = document.querySelector("#modal-input-url");
     const _buttonElement = evt.target.querySelector(".form__submit");
-    const _cardFormElement = document.querySelector("#card__modal-form");
-    const _cardsContainer = document.querySelector(".elements");
-    const _cardModalDisplay = document.querySelector("#card");
-    const newCard = new Card(_cardTitleInput.value, _cardUrlInput.value);
+    const newCard = new Card(selector._cardTitleInput.value, selector._cardUrlInput.value);
     const _newCardElement = newCard._generateCard();
-    _cardsContainer.prepend(_newCardElement);
-    _cardFormElement.reset();
-    closeModal(_cardModalDisplay);
-    toggleButtonState(
-      [_cardTitleInput, _cardUrlInput],
+    selector._cardsContainer.prepend(_newCardElement);
+    selector._cardFormElement.reset();
+    closeModal(selector._cardModalDisplay);
+    _toggleButtonState(
+      [selector._cardTitleInput, selector._cardUrlInput],
       _buttonElement,
       validationConfig.inactiveButtonClass
     );
   }
 }
 initialCards.forEach((cardData) => {
-  const cardsContainer = document.querySelector(".elements");
   const card = new Card(cardData.name, cardData.link);
   const cardElement = card._generateCard();
-  cardsContainer.prepend(cardElement);
+  selector._cardsContainer.prepend(cardElement);
 });
