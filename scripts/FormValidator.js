@@ -1,17 +1,26 @@
-import { validationConfig } from "./index.js";
-class Validation {
-    constructor (formElement, inputSelector){
-        this.formElement = formElement; 
-        this.inputSelector = inputSelector;
-
-    }
-  _showInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
+import { validationConfig } from "./constants.js";
+export class Validation {
+  constructor(formElement, inputSelector) {
+    this.formElement = formElement;
+    this.inputSelector = inputSelector;
+  }
+  _showInputError = (
+    formElement,
+    inputElement,
+    inputErrorClass,
+    errorClass
+  ) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(inputErrorClass);
     errorElement.classList.add(errorClass);
   };
 
-  _hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
+  _hideInputError = (
+    formElement,
+    inputElement,
+    inputErrorClass,
+    errorClass
+  ) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(inputErrorClass);
     errorElement.classList.remove(errorClass);
@@ -71,21 +80,11 @@ class Validation {
       });
     });
   };
-  
-  
-}
-
-
-const enableValidation = (formSelector, inputSelector) => {
-  const formList = Array.from(document.querySelectorAll(formSelector));
-
-  formList.forEach((formElement) => {
+  enableValidation = (inputSelector, formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
     const newValidation = new Validation(formElement, inputSelector);
     newValidation.setEventListeners(formElement, inputSelector);
-  });
-};
-
-enableValidation(validationConfig.formSelector, validationConfig.inputSelector);
+  };
+}

@@ -1,5 +1,7 @@
-import {closeModal, openModal} from "./index.js"
+import { closeModal, openModal } from "./utils.js";
+import { Validation } from "./FormValidator.js";
 import * as selector from "./constants.js";
+import { validationConfig } from "./constants.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -39,14 +41,12 @@ class Card {
       .cloneNode(true);
     return _cardElement;
   }
-  _handlePreviewPicture(link,name) {
-    
+  _handlePreviewPicture(link, name) {
     selector.imageElement.src = link;
     selector.imageElement.alt = name;
-    selector.imageCaption.textContent =name;
+    selector.imageCaption.textContent = name;
     openModal(selector.imageView);
   }
-
 
   _generateCard() {
     this._element = this._getTemplate();
@@ -74,16 +74,20 @@ class Card {
     _cardFormElement.addEventListener("submit", this.handleCardFormSubmit);
     return this._element;
   }
-  
+
   handleCardFormSubmit(evt) {
     evt.preventDefault();
     const _buttonElement = evt.target.querySelector(".form__submit");
-    const newCard = new Card(selector._cardTitleInput.value, selector._cardUrlInput.value);
+    const newCard = new Card(
+      selector._cardTitleInput.value,
+      selector._cardUrlInput.value
+    );
+    const newValidation = new Validation();
     const _newCardElement = newCard._generateCard();
     selector._cardsContainer.prepend(_newCardElement);
     selector._cardFormElement.reset();
     closeModal(selector._cardModalDisplay);
-    _toggleButtonState(
+    newValidation._toggleButtonState(
       [selector._cardTitleInput, selector._cardUrlInput],
       _buttonElement,
       validationConfig.inactiveButtonClass

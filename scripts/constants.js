@@ -1,7 +1,22 @@
-export const profileModalBoxOpen = document.querySelector(".profile__edit-space");
-export const profileModalBoxClose = document.querySelector("#modal__close-button");
+import * as selector from "./constants.js";
+export const profileModalBoxOpen = document.querySelector(
+  ".profile__edit-space"
+);
+export const profileModalBoxClose = document.querySelector(
+  "#modal__close-button"
+);
 export const cardModalBoxOpen = document.querySelector(".profile__edit-button");
-export const cardModalBoxClose = document.querySelector("#modal__card-close-button");
+export const cardModalBoxClose = document.querySelector(
+  "#modal__card-close-button"
+);
+export const validationConfig = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__submit",
+  inactiveButtonClass: "form__submit_inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+};
 export const cardModalDisplay = document.querySelector("#card");
 export const profileModalDisplay = document.querySelector("#profile__modal");
 export const profileFormElement = document.querySelector("#modal__form");
@@ -18,3 +33,11 @@ export const _cardUrlInput = document.querySelector("#modal-input-url");
 export const _cardFormElement = document.querySelector("#card__modal-form");
 export const _cardsContainer = document.querySelector(".elements");
 export const _cardModalDisplay = document.querySelector("#card");
+export const profileModalDisplayShade =
+  selector.profileModalDisplay.querySelector(".modal__box-shade");
+export const cardModalDisplayShade = selector.cardModalDisplay.querySelector(
+  "#card__modal-box-shade"
+);
+export const formList = Array.from(
+  document.querySelectorAll(validationConfig.formSelector)
+);
