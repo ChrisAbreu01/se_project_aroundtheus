@@ -48,7 +48,7 @@ class Card {
     openModal(selector.imageView);
   }
 
-  _generateCard() {
+  generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".elements__img").src = this._image;
     this._element.querySelector(".elements__title").textContent = this._text;
@@ -83,7 +83,7 @@ class Card {
       selector._cardUrlInput.value
     );
     const newValidation = new Validation();
-    const _newCardElement = newCard._generateCard();
+    const _newCardElement = newCard.generateCard();
     selector._cardsContainer.prepend(_newCardElement);
     selector._cardFormElement.reset();
     closeModal(selector._cardModalDisplay);
@@ -96,6 +96,6 @@ class Card {
 }
 initialCards.forEach((cardData) => {
   const card = new Card(cardData.name, cardData.link);
-  const cardElement = card._generateCard();
+  const cardElement = card.generateCard();
   selector._cardsContainer.prepend(cardElement);
 });

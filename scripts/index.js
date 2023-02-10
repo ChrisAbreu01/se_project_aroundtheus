@@ -1,6 +1,6 @@
 import * as selector from "./constants.js";
 import * as modalFunctions from "./utils.js";
-import { Validation } from "./FormValidator.js";
+import { FormValidator } from "./FormValidator.js";
 import { validationConfig } from "./constants.js";
 
 selector.profileFormElement.addEventListener("submit", handleProfileFormSubmit);
@@ -14,7 +14,7 @@ function handleProfileFormSubmit(evt) {
   modalFunctions.closeModal(selector.profileModalDisplay);
 }
 selector.formList.forEach((formElement) => {
-  const newValidation = new Validation(
+  const newValidation = new FormValidator(
     formElement,
     validationConfig.inputSelector
   );

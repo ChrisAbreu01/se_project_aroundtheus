@@ -1,23 +1,23 @@
 import * as selector from "./constants.js";
 export function openModal(modal) {
   modal.classList.add("modal_box_opened");
-  modal.classList.add("popup_open");
+  modal.classList.add("modal_open");
   document.addEventListener("keydown", closeModalByEscape);
 }
 export function closeModal(modal) {
   modal.classList.remove("modal_box_opened");
-  modal.classList.remove("popup_open");
+  modal.classList.remove("modal_open");
   document.removeEventListener("keydown", closeModalByEscape);
 }
 export function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".popup_open");
+    const openedModal = document.querySelector(".modal_open");
     closeModal(openedModal);
   }
 }
 export function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
-    const modalOpen = document.querySelector(".popup_open");
+    const modalOpen = document.querySelector(".modal_open");
     closeModal(modalOpen);
   }
 }

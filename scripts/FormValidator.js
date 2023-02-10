@@ -1,5 +1,5 @@
 import { validationConfig } from "./constants.js";
-export class Validation {
+export class FormValidator {
   constructor(formElement, inputSelector) {
     this.formElement = formElement;
     this.inputSelector = inputSelector;
@@ -84,7 +84,7 @@ export class Validation {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    const newValidation = new Validation(formElement, inputSelector);
+    const newValidation = new FormValidator(formElement, inputSelector);
     newValidation.setEventListeners(formElement, inputSelector);
   };
 }
