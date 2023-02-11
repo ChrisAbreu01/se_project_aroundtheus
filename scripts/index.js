@@ -16,7 +16,7 @@ function handleProfileFormSubmit(evt) {
 selector.formList.forEach((formElement) => {
   const newValidation = new FormValidator(
     formElement,
-    validationConfig.inputSelector
+    validationConfig
   );
   newValidation.enableValidation(validationConfig.inputSelector, formElement);
 });

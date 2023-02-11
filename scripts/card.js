@@ -1,5 +1,5 @@
 import { closeModal, openModal } from "./utils.js";
-import { Validation } from "./FormValidator.js";
+import { FormValidator } from "./FormValidator.js";
 import * as selector from "./constants.js";
 import { validationConfig } from "./constants.js";
 const initialCards = [
@@ -82,7 +82,7 @@ class Card {
       selector.cardTitleInput.value,
       selector.cardUrlInput.value
     );
-    const newValidation = new Validation();
+    const newValidation = new FormValidator();
     const _newCardElement = newCard.generateCard();
     selector._cardsContainer.prepend(_newCardElement);
     selector._cardFormElement.reset();
