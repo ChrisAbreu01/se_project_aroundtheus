@@ -32,46 +32,44 @@ class Card {
   constructor(text, image) {
     this._image = image;
     this._text = text;
+    this._element = document
+    .querySelector("#elements-template")
+    .content.querySelector(".elements__element")
+    .cloneNode(true);
+    this.cardImage = this._element.querySelector(".elements__img");
+    this.cardFormElement = document.querySelector("#card__modal-form");
+    this.cardLikeButton = this._element.querySelector( 
+      ".elements__like-button"
+    );
+    this.deleteCardButton = this._element.querySelector(
+      ".element__delete-button"
+    );
+    this.newValidation = new FormValidator();
   }
 
-  _getTemplate() {
-    const _cardElement = document
-      .querySelector("#elements-template")
-      .content.querySelector(".elements__element")
-      .cloneNode(true);
-    return _cardElement;
-  }
   _handlePreviewPicture(link, name) {
     selector.imageElement.src = link;
     selector.imageElement.alt = name;
     selector.imageCaption.textContent = name;
     openModal(selector.imageView);
   }
-
-  generateCard() {
-    this._element = this._getTemplate();
-    this._element.querySelector(".elements__img").src = this._image;
+  _setEventListeners(){
+  this.cardImage.addEventListener("click", () => {
+    this._handlePreviewPicture(this._image, this._text);
+  });
+  this.cardLikeButton.addEventListener("click", () =>
+  this.cardLikeButton.classList.toggle("elements__like-button-black")
+  );
+  this.deleteCardButton.addEventListener("click", function () {
+    const listItem = this.deleteCardButton.closest(".elements__element");
+    listItem.remove();
+  });
+  this.cardFormElement.addEventListener("submit", this.handleCardFormSubmit);
+  }
+  generateCard() { 
+    this.cardImage.src = this._image;
     this._element.querySelector(".elements__title").textContent = this._text;
-    const cardFormElement = document.querySelector("#card__modal-form");
-    const cardLikeButton = this._element.querySelector(
-      ".elements__like-button"
-    );
-    const deleteCardButton = this._element.querySelector(
-      ".element__delete-button"
-    );
-    const cardImage = this._element.querySelector(".elements__img");
-
-    cardImage.addEventListener("click", () => {
-      this._handlePreviewPicture(this._image, this._text);
-    });
-    cardLikeButton.addEventListener("click", () =>
-      cardLikeButton.classList.toggle("elements__like-button-black")
-    );
-    deleteCardButton.addEventListener("click", function () {
-      const listItem = deleteCardButton.closest(".elements__element");
-      listItem.remove();
-    });
-    cardFormElement.addEventListener("submit", this.handleCardFormSubmit);
+    this._setEventListeners();
     return this._element;
   }
 
@@ -82,12 +80,12 @@ class Card {
       selector.cardTitleInput.value,
       selector.cardUrlInput.value
     );
-    const newValidation = new FormValidator();
+    
     const _newCardElement = newCard.generateCard();
-    selector._cardsContainer.prepend(_newCardElement);
-    selector._cardFormElement.reset();
+    selector.cardsContainer.prepend(_newCardElement);
+    selector.cardFormElement.reset();
     closeModal(selector.cardModalDisplay);
-    newValidation._toggleButtonState(
+    this.newValidation._toggleButtonState(
       [selector.cardTitleInput, selector.cardUrlInput],
       _buttonElement,
       validationConfig.inactiveButtonClass
