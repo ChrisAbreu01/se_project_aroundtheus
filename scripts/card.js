@@ -52,26 +52,26 @@ class Card {
     this._element = this._getTemplate();
     this._element.querySelector(".elements__img").src = this._image;
     this._element.querySelector(".elements__title").textContent = this._text;
-    const _cardFormElement = document.querySelector("#card__modal-form");
+    const cardFormElement = document.querySelector("#card__modal-form");
     const cardLikeButton = this._element.querySelector(
       ".elements__like-button"
     );
-    const _deleteCardButton = this._element.querySelector(
+    const deleteCardButton = this._element.querySelector(
       ".element__delete-button"
     );
-    const _cardImage = this._element.querySelector(".elements__img");
+    const cardImage = this._element.querySelector(".elements__img");
 
-    _cardImage.addEventListener("click", () => {
+    cardImage.addEventListener("click", () => {
       this._handlePreviewPicture(this._image, this._text);
     });
     cardLikeButton.addEventListener("click", () =>
       cardLikeButton.classList.toggle("elements__like-button-black")
     );
-    _deleteCardButton.addEventListener("click", function () {
-      const listItem = _deleteCardButton.closest(".elements__element");
+    deleteCardButton.addEventListener("click", function () {
+      const listItem = deleteCardButton.closest(".elements__element");
       listItem.remove();
     });
-    _cardFormElement.addEventListener("submit", this.handleCardFormSubmit);
+    cardFormElement.addEventListener("submit", this.handleCardFormSubmit);
     return this._element;
   }
 
@@ -79,16 +79,16 @@ class Card {
     evt.preventDefault();
     const _buttonElement = evt.target.querySelector(".form__submit");
     const newCard = new Card(
-      selector._cardTitleInput.value,
-      selector._cardUrlInput.value
+      selector.cardTitleInput.value,
+      selector.cardUrlInput.value
     );
     const newValidation = new Validation();
     const _newCardElement = newCard.generateCard();
     selector._cardsContainer.prepend(_newCardElement);
     selector._cardFormElement.reset();
-    closeModal(selector._cardModalDisplay);
+    closeModal(selector.cardModalDisplay);
     newValidation._toggleButtonState(
-      [selector._cardTitleInput, selector._cardUrlInput],
+      [selector.cardTitleInput, selector.cardUrlInput],
       _buttonElement,
       validationConfig.inactiveButtonClass
     );
@@ -97,5 +97,5 @@ class Card {
 initialCards.forEach((cardData) => {
   const card = new Card(cardData.name, cardData.link);
   const cardElement = card.generateCard();
-  selector._cardsContainer.prepend(cardElement);
+  selector.cardsContainer.prepend(cardElement);
 });

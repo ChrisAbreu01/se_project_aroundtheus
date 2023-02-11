@@ -28,11 +28,10 @@ export const imageModalClose = document.querySelector("#image__popup-close");
 export const imageView = document.querySelector("#modal__image-popup");
 export const imageElement = document.querySelector(".modal__image");
 export const imageCaption = document.querySelector(".modal__caption");
-export const _cardTitleInput = document.querySelector("#modal-input-title");
-export const _cardUrlInput = document.querySelector("#modal-input-url");
-export const _cardFormElement = document.querySelector("#card__modal-form");
-export const _cardsContainer = document.querySelector(".elements");
-export const _cardModalDisplay = document.querySelector("#card");
+export const cardTitleInput = document.querySelector("#modal-input-title");
+export const cardUrlInput = document.querySelector("#modal-input-url");
+export const cardFormElement = document.querySelector("#card__modal-form");
+export const cardsContainer = document.querySelector(".elements");
 export const profileModalDisplayShade =
   selector.profileModalDisplay.querySelector(".modal__box-shade");
 export const cardModalDisplayShade = selector.cardModalDisplay.querySelector(

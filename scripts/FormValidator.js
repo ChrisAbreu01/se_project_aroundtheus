@@ -80,11 +80,10 @@ export class FormValidator {
       });
     });
   };
-  enableValidation = (inputSelector, formElement) => {
-    formElement.addEventListener("submit", (evt) => {
+  enableValidation = () => {
+    this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    const newValidation = new FormValidator(formElement, inputSelector);
-    newValidation.setEventListeners(formElement, inputSelector);
+    this._setEventListeners();
   };
 }
