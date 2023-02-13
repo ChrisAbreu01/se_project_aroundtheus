@@ -24,7 +24,7 @@ function handleCardFormSubmit(evt) {
     const _newCardElement = newCard.generateCard();
     selector.cardsContainer.prepend(_newCardElement);
     selector.cardFormElement.reset();
-    closeModal(selector.cardModalDisplay);
+    modalFunctions.closeModal(selector.cardModalDisplay);
 }
 selector.formList.forEach((formElement) => {
     const _buttonElement = formElement.querySelector(".form__submit");
