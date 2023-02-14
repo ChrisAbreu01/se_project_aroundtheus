@@ -1,4 +1,3 @@
-import * as selector from "./constants.js";
 export const profileModalBoxOpen = document.querySelector(
     ".profile__edit-space"
 );
@@ -32,9 +31,10 @@ export const cardTitleInput = document.querySelector("#modal-input-title");
 export const cardUrlInput = document.querySelector("#modal-input-url");
 export const cardFormElement = document.querySelector("#card__modal-form");
 export const cardsContainer = document.querySelector(".elements");
+export const cardSelector = "#elements-template";
 export const profileModalDisplayShade =
-    selector.profileModalDisplay.querySelector(".modal__box-shade");
-export const cardModalDisplayShade = selector.cardModalDisplay.querySelector(
+    profileModalDisplay.querySelector(".modal__box-shade");
+export const cardModalDisplayShade = cardModalDisplay.querySelector(
     "#card__modal-box-shade"
 );
 export const formList = Array.from(
