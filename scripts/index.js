@@ -1,19 +1,19 @@
 import * as selector from "./Constants.js";
 import * as modalFunctions from "./Utils.js";
+import {PopupWithForm} from "./PopupWithForm.js";
 import { FormValidator } from "./FormValidator.js";
 import { validationConfig } from "./Constants.js";
 import { Card, initialCards} from "./Card.js";
 import { Section } from "./Section.js";
-selector.profileFormElement.addEventListener("submit", handleProfileFormSubmit);
-selector.cardFormElement.addEventListener("submit", handleCardFormSubmit);
-
+// selector.profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+// selector.cardFormElement.addEventListener("submit", handleCardFormSubmit);
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     selector.profileName.textContent = selector.nameInput.value;
     selector.profileJob.textContent = selector.jobInput.value;
     selector.profileFormElement.reset();
     profileFormValidation.toggleButtonState();
-    modalFunctions.closeModal(selector.profileModalDisplay);
+    this.close();
 }
 
 function handleCardFormSubmit(evt) {
@@ -24,11 +24,11 @@ function handleCardFormSubmit(evt) {
         selector.cardSelector
     );
 
-    const _newCardElement = newCard.generateCard();
-    selector.cardsContainer.prepend(_newCardElement);
+    const newCardElement = newCard.generateCard();
+     selector.cardsContainer.prepend(newCardElement);
     selector.cardFormElement.reset();
     cardFormValidation.toggleButtonState();
-    modalFunctions.closeModal(selector.cardModalDisplay);
+    this.close();
 }
 
 const profileFormValidation = new FormValidator(
@@ -49,8 +49,16 @@ const cardList = new Section({
   }, selector.cardsContainer);
   
   cardList.renderItems(); 
-// initialCards.forEach((cardData) => {
-//     const card = new Card(cardData.name, cardData.link, selector.cardSelector);
-//     const cardElement = card.generateCard();
-//     selector.cardsContainer.prepend(cardElement);
-// });
+  
+  const newCardPopup = new PopupWithForm("#card", handleCardFormSubmit); 
+  selector.cardModalBoxOpen.addEventListener("click", () => {
+    newCardPopup.open();
+  });
+  newCardPopup.setEventListeners();
+  const newProfilePopup = new PopupWithForm("#profile__modal",handleProfileFormSubmit);
+  selector.profileModalBoxOpen.addEventListener("click", () => {
+    newProfilePopup.open();
+  selector.nameInput.value = selector.profileName.textContent;
+  selector.jobInput.value = selector.profileJob.textContent;
+});
+  newProfilePopup.setEventListeners();

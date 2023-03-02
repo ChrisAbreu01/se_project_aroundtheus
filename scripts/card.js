@@ -1,4 +1,4 @@
-import { openModal } from "./Utils.js";
+// import { openModal } from "./Utils.js";
 import * as selector from "./Constants.js";
 export const initialCards = [{
     name: "Yosemite Valley",
