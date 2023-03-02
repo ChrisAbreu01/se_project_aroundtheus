@@ -1,0 +1,11 @@
+{
+  "name": "practicum",
+  "version": "0.0.1",
+  "description": "educational platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Abreu",
+  "license": "ISC"
+}

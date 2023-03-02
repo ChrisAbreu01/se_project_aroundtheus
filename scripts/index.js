@@ -2,7 +2,8 @@ import * as selector from "./Constants.js";
 import * as modalFunctions from "./Utils.js";
 import { FormValidator } from "./FormValidator.js";
 import { validationConfig } from "./Constants.js";
-import { Card, initialCards } from "./Card.js";
+import { Card, initialCards} from "./Card.js";
+import { Section } from "./Section.js";
 selector.profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 selector.cardFormElement.addEventListener("submit", handleCardFormSubmit);
 
@@ -43,8 +44,13 @@ const cardFormValidation = new FormValidator(
 cardFormValidation.toggleButtonState();
 cardFormValidation.enableValidation();
 
-initialCards.forEach((cardData) => {
-    const card = new Card(cardData.name, cardData.link, selector.cardSelector);
-    const cardElement = card.generateCard();
-    selector.cardsContainer.prepend(cardElement);
-});
+const cardList = new Section({
+    items: initialCards
+  }, selector.cardsContainer);
+  
+  cardList.renderItems(); 
+// initialCards.forEach((cardData) => {
+//     const card = new Card(cardData.name, cardData.link, selector.cardSelector);
+//     const cardElement = card.generateCard();
+//     selector.cardsContainer.prepend(cardElement);
+// });
