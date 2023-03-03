@@ -13,36 +13,22 @@ export class Popup {
   }
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
-        const openedModal = document.querySelector("modal_box_opened");
-        closeModal(openedModal);
+      const openedModal = document.querySelector("modal_box_opened");
+      closeModal(openedModal);
     } else if (evt.target === evt.currentTarget) {
-        const modalOpen = document.querySelector(".modal_open");
-        closeModal(modalOpen);
+      const modalOpen = document.querySelector(".modal_open");
+      closeModal(modalOpen);
     }
-
   }
   setEventListeners() {
-    this._popUpElement.querySelector(".modal__close-button").addEventListener("click", () => {
+    this._popUpElement
+      .querySelector(".modal__close-button")
+      .addEventListener("click", () => {
         this.close(this._popUpElement);
-     });
-    
-     this._popUpElement.querySelector("modal__box-shade").addEventListener(
-  "click",
-  this._handleEscClose
-);
+      });
+
+    this._popUpElement
+      .querySelector("modal__box-shade")
+      .addEventListener("click", this._handleEscClose);
   }
 }
-// selector.profileModalBoxOpen.addEventListener("click", () => {
-//   this.open(this._popUpElement);
-//   selector.nameInput.value = selector.profileName.textContent;
-//   selector.jobInput.value = selector.profileJob.textContent;
-// });
-// selector.cardModalBoxClose.addEventListener("click", () => {
-//   super.close(this._popUpElement);
-// });
-// selector.cardModalBoxOpen.addEventListener("click", () => {
-//   super.open(this._popUpElement);
-// });
-// selector.profileModalBoxClose.addEventListener("click", () => {
-//   this.close(this._popUpElement);
-// });
