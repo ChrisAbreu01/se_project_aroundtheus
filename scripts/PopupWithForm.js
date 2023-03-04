@@ -22,7 +22,13 @@ export class PopupWithForm extends Popup {
     const inputValues = {};
     const inputValueList = this._popUpElement.querySelectorAll("modal__input");
     inputValueList.forEach((input) => {
-      inputValues.push(input.value);
+      inputValues[input.name] = input.name;
+      inputValues[input.type] = input.type;
+      inputValues[input.id] = input.id;
+      inputValues[input.class] = input.class;
+      inputValues[input.placeholder] = input.placeholder;
+      inputValues[input.minlength] = input.minlength;
+      inputValues[input.maxlength] = input.maxlength;
     });
     return inputValues;
   }

@@ -12,7 +12,4 @@ export class PopupWithImage extends Popup {
     this.popUpCaption.textContent = this.text;
     super.open();
   }
-  handleCardClick() {
-    open();
-  }
 }

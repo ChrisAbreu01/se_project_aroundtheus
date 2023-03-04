@@ -43,7 +43,8 @@ export class Card {
     );
   }
   _setEventListeners() {
-    this.cardImage.addEventListener("click",this.handleCardClick());
+    this.cardImage.addEventListener("click",
+    () => {});
     this.cardLikeButton.addEventListener("click", () =>
       this.cardLikeButton.classList.toggle("elements__like-button-black")
     );

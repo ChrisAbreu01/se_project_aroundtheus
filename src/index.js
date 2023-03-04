@@ -1,16 +1,19 @@
-import * as selector from "./Constants.js";
-import * as modalFunctions from "./Utils.js";
-import { PopupWithForm } from "./PopupWithForm.js";
-import { FormValidator } from "./FormValidator.js";
-import { validationConfig } from "./Constants.js";
-import { Card, initialCards } from "./Card.js";
-import { Section } from "./Section.js";
-import { PopupWithImage } from "./PopupWithImage.js";
+
+import * as selector from "../scripts/Constants.js";
+import * as modalFunctions from "../scripts/Utils.js";
+import { PopupWithForm } from "../scripts/PopupWithForm.js";
+import { FormValidator } from "../scripts/FormValidator.js";
+import { validationConfig } from "../scripts/Constants.js";
+import { Card, initialCards } from "../scripts/Card.js";
+import { Section } from "../scripts/Section.js";
+import { PopupWithImage } from "../scripts/PopupWithImage.js";
+import { UserInfo } from "../scripts/UserInfo.js";
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  selector.profileName.textContent = selector.nameInput.value;
-  selector.profileJob.textContent = selector.jobInput.value;
+  const newUserInfo = new UserInfo(selector.nameInput.value, selector.jobInput.value);
+  newUserInfo.getUserInfo();
+  newUserInfo.setUserInfo();
   selector.profileFormElement.reset();
   profileFormValidation.toggleButtonState();
   newProfilePopup.close();
@@ -23,7 +26,9 @@ function handleCardFormSubmit(evt) {
     selector.cardTitleInput.value,
     selector.cardUrlInput.value,
     selector.cardSelector,
-    newPopupWithImage.handleCardClick
+    () => {
+      newPopupWithImage.open();
+    }
   );
 
   const newCardElement = newCard.generateCard();
