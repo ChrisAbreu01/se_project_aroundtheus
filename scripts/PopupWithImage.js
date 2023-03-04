@@ -6,10 +6,11 @@ export class PopupWithImage extends Popup {
     this.popUpImage = this._popUpElement.querySelector(".modal__image");
     this.popUpCaption = this._popUpElement.querySelector(".modal__caption");
   }
-  open() {
-    this.popUpImage.src = this.image;
-    this.popUpImage.alt = this.text;
-    this.popUpCaption.textContent = this.text;
+  open(inputValueName, inputValueLink) {
+    this.popUpImage.src = inputValueLink;
+    this.popUpImage.alt = inputValueName;
+    this.popUpCaption.textContent = inputValueName;
+    super.setEventListeners();
     super.open();
   }
 }

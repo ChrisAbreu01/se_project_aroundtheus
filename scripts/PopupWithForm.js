@@ -11,7 +11,12 @@ export class PopupWithForm extends Popup {
     super.close();
   }
   setEventListeners() {
-    this.popUpForm.addEventListener("submit", this._handleFormSubmit);
+    this.popUpForm.addEventListener("submit", (evt) =>{ 
+      evt.preventDefault();
+      this._getInputValues();
+      const inputValues = this._getInputValues();
+      this._handleFormSubmit(inputValues); 
+    });
     this._popUpElement
       .querySelector(".modal__close-button")
       .addEventListener("click", () => {
@@ -20,15 +25,9 @@ export class PopupWithForm extends Popup {
   }
   _getInputValues() {
     const inputValues = {};
-    const inputValueList = this._popUpElement.querySelectorAll("modal__input");
+    const inputValueList = this.popUpForm.querySelectorAll(".modal__input");
     inputValueList.forEach((input) => {
-      inputValues[input.name] = input.name;
-      inputValues[input.type] = input.type;
-      inputValues[input.id] = input.id;
-      inputValues[input.class] = input.class;
-      inputValues[input.placeholder] = input.placeholder;
-      inputValues[input.minlength] = input.minlength;
-      inputValues[input.maxlength] = input.maxlength;
+      inputValues[input.name] = input.value;
     });
     return inputValues;
   }

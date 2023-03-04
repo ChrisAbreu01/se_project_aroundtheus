@@ -1,4 +1,3 @@
-
 import * as selector from "../scripts/Constants.js";
 import * as modalFunctions from "../scripts/Utils.js";
 import { PopupWithForm } from "../scripts/PopupWithForm.js";
@@ -11,7 +10,10 @@ import { UserInfo } from "../scripts/UserInfo.js";
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  const newUserInfo = new UserInfo(selector.nameInput.value, selector.jobInput.value);
+  const newUserInfo = new UserInfo(
+    selector.nameInput.value,
+    selector.jobInput.value
+  );
   newUserInfo.getUserInfo();
   newUserInfo.setUserInfo();
   selector.profileFormElement.reset();
@@ -19,20 +21,9 @@ function handleProfileFormSubmit(evt) {
   newProfilePopup.close();
 }
 
-function handleCardFormSubmit(evt) {
-  evt.preventDefault();
-  const newPopupWithImage= new PopupWithImage ('.modal__image-popup');
-  const newCard = new Card(
-    selector.cardTitleInput.value,
-    selector.cardUrlInput.value,
-    selector.cardSelector,
-    () => {
-      newPopupWithImage.open();
-    }
-  );
-
-  const newCardElement = newCard.generateCard();
-  document.querySelector(selector.cardsContainer).prepend(newCardElement);
+function handleCardFormSubmit(inputValues) {
+  const newCard = createCard(inputValues);
+  document.querySelector(selector.cardsContainer).prepend(newCard);
   selector.cardFormElement.reset();
   cardFormValidation.toggleButtonState();
   newCardPopup.close();
@@ -54,17 +45,35 @@ cardFormValidation.enableValidation();
 const cardList = new Section(
   {
     items: initialCards,
+    renderer: createCard
   },
   selector.cardsContainer
 );
 
 cardList.renderItems();
+function createCard(cardData) {
+  const newPopupWithImage = new PopupWithImage(".modal__image-popup");
+  const newCard = new Card(
+    cardData.name,
+    cardData.link,
+    selector.cardSelector,
+    {
+      handleCardClick: () => {
+        newPopupWithImage.open(cardData.name, cardData.link);
+      },
+    }
+  );
+  newCard._setEventListeners();
+  const newCardElement = newCard.generateCard();
+  return newCardElement;;
+}
 
 const newCardPopup = new PopupWithForm("#card", handleCardFormSubmit);
 selector.cardModalBoxOpen.addEventListener("click", () => {
   newCardPopup.open();
+  newCardPopup.setEventListeners();
 });
-newCardPopup.setEventListeners();
+
 const newProfilePopup = new PopupWithForm(
   "#profile__modal",
   handleProfileFormSubmit

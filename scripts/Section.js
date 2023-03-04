@@ -9,16 +9,7 @@ export class Section {
   }
   renderItems() {
     this._initialArray.forEach((cardData) => {
-      const newPopupWithImage= new PopupWithImage ('.modal__image-popup');
-      const card = new Card(
-        cardData.name,
-        cardData.link,
-        selector.cardSelector,
-        newPopupWithImage.handleCardClick
-      );
-      card._setEventListeners();
-      const cardElement = card.generateCard();
-      this.addItem(cardElement);
+      this.addItem(this._renderer(cardData));
     });
   }
 
