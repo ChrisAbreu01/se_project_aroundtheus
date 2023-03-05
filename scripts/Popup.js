@@ -5,21 +5,20 @@ export class Popup {
   }
   open() {
     this._popUpElement.classList.add("modal_box_opened");
-    document.addEventListener("keydown", this._handleEscClose);
+    document.addEventListener("keydown", (evt) => {this._handleEscClose(evt)});
   }
   close() {
     this._popUpElement.classList.remove("modal_box_opened");
-    document.removeEventListener("keydown", this._handleEscClose);
+    document.removeEventListener("keydown", (evt) => {this._handleEscClose(evt)});
   }
   _handleEscClose(evt) {
-    if (evt.key === "Escape") {
+    if (evt.keyCode == 27) {
       const openedModal = document.querySelector("modal_box_opened");
-      closeModal(openedModal);
-    }; 
-    if (evt.target === evt.currentTarget) {
+      this.close(openedModal);
+    } else if (evt.target === evt.currentTarget) {
       const modalOpen = document.querySelector(".modal_open");
-      closeModal(modalOpen);
-    };
+    this.close(modalOpen);
+     };
   }
   setEventListeners() {
     this._popUpElement
@@ -27,7 +26,6 @@ export class Popup {
       .addEventListener("click", () => {
         this.close(this._popUpElement);
       });
-
-    this._popUpElement.addEventListener("click", ()=>{this._handleEscClose();});
+    this._popUpElement.addEventListener("click", (evt) => {this._handleEscClose(evt)});
   }
 }

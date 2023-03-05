@@ -1,5 +1,3 @@
-// import { openModal } from "./Utils.js";
-import * as selector from "./Constants.js";
 export const initialCards = [
   {
     name: "Yosemite Valley",
@@ -27,7 +25,7 @@ export const initialCards = [
   },
 ];
 export class Card {
-  constructor(text, image, cardSelector,{handleCardClick}) {
+  constructor(text, image, cardSelector, { handleCardClick }) {
     this.image = image;
     this.text = text;
     this._handleCardClick = handleCardClick;
@@ -43,8 +41,9 @@ export class Card {
     );
   }
   _setEventListeners() {
-    this.cardImage.addEventListener("click",
-    () => {this._handleCardClick});
+    this.cardImage.addEventListener("click", () => {
+      this._handleCardClick();
+    });
     this.cardLikeButton.addEventListener("click", () =>
       this.cardLikeButton.classList.toggle("elements__like-button-black")
     );

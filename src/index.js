@@ -1,5 +1,5 @@
+import "./styles/index.css";
 import * as selector from "../scripts/Constants.js";
-import * as modalFunctions from "../scripts/Utils.js";
 import { PopupWithForm } from "../scripts/PopupWithForm.js";
 import { FormValidator } from "../scripts/FormValidator.js";
 import { validationConfig } from "../scripts/Constants.js";
@@ -45,27 +45,28 @@ cardFormValidation.enableValidation();
 const cardList = new Section(
   {
     items: initialCards,
-    renderer: createCard
+    renderer: createCard,
   },
   selector.cardsContainer
 );
 
 cardList.renderItems();
 function createCard(cardData) {
-  const newPopupWithImage = new PopupWithImage(".modal__image-popup");
+  // const newPopupWithImage = new PopupWithImage(".modal__image-popup");
   const newCard = new Card(
     cardData.name,
     cardData.link,
     selector.cardSelector,
     {
       handleCardClick: () => {
+        const newPopupWithImage = new PopupWithImage(".modal__image-popup");
         newPopupWithImage.open(cardData.name, cardData.link);
       },
     }
   );
   newCard._setEventListeners();
   const newCardElement = newCard.generateCard();
-  return newCardElement;;
+  return newCardElement;
 }
 
 const newCardPopup = new PopupWithForm("#card", handleCardFormSubmit);

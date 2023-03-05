@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="An epic journey from Kentucky to Burundi through Wales and Ukraine." />
+    <meta
+      name="description"
+      content="An epic journey from Kentucky to Burundi through Wales and Ukraine."
+    />
     <title>Practicum Art Gallery</title>
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" type="image/x-icon" href="../a__logo.svg" />
-</head>
+  </head>
 
-<body class="page">
+  <body class="page">
     <!--body section of the page starts here -->
     <div class="page__content">
-        <!--The edit profile modal box section starts here -->
-        <div class="modal" id="profile__modal">
-            <div class="modal__box-shade modal-selector"></div>
-            <div class="modal-box-close-container">
-                <button class="modal__close-button" id="modal__close-button"></button>
-                <div class="modal__container">
-                    <h2 class="modal__header">Edit profile</h2>
-                    <form class="modal__form form" id="modal__form">
-                        <div class="modal__space">
-                            <input type="text" id="modal-name-input" class="modal__input form__input" name="Name" placeholder="Name" minlength="2" maxlength="40" required />
-                            <span class="modal-name-input-error form__input-error">Please fill out this field.</span
+      <!--The edit profile modal box section starts here -->
+      <div class="modal" id="profile__modal">
+        <div class="modal-box-close-container">
+          <button class="modal__close-button" id="modal__close-button"></button>
+          <div class="modal__container">
+            <h2 class="modal__header">Edit profile</h2>
+            <form class="modal__form form" id="modal__form">
+              <div class="modal__space">
+                <input
+                  type="text"
+                  id="modal-name-input"
+                  class="modal__input form__input"
+                  name="Name"
+                  placeholder="Name"
+                  minlength="2"
+                  maxlength="40"
+                  required
+                />
+                <span class="modal-name-input-error form__input-error"
+                  >Please fill out this field.</span
                 >
               </div>
               <div class="modal__space">
@@ -51,10 +61,6 @@
       </div>
       <!--The adding card modal box section starts here -->
       <div class="modal modal__card" id="card">
-        <div
-          class="modal__box-shade modal-selector"
-          id="card__modal-box-shade"
-        ></div>
         <div class="modal-box-close-container">
           <button
             class="modal__close-button"
@@ -121,7 +127,10 @@
           <button class="profile__edit-button"></button>
         </section>
         <!--pop up element of the page starts here -->
-        <div class="modal modal-selector modal__image-popup modal__box-shade" id="modal__image-popup">
+        <div
+          class="modal modal-selector modal__image-popup"
+          id="modal__image-popup"
+        >
           <div class="modal__image-close-container">
             <button
               class="modal__close-button"
@@ -154,17 +163,6 @@
         <p class="footer__copyrights">© 2022 Christopher Abreu</p>
       </footer>
     </div>
-    <script type="module" src="./src/index.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/Card.js" ></script>
-    <script type="module" src="./scripts/Constants.js"></script>
-    <script type="module" src="./scripts/Utils.js"></script>
-    <script type="module" src="./scripts/Section.js"></script>
-    <script type="module" src="./scripts/Popup.js"></script>
-    <script type="module" src="./scripts/PopupWithForm.js">
-    </script>
-    <script type="module" src="./scripts/PopupWithImage.js"></script>
-    <script type="module" src="./scripts/UserInfo.js"></script>
     <!--content section of the page ends here -->
   </body>
 </html>
