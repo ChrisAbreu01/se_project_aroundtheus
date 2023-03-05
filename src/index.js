@@ -52,14 +52,13 @@ const cardList = new Section(
 
 cardList.renderItems();
 function createCard(cardData) {
-  // const newPopupWithImage = new PopupWithImage(".modal__image-popup");
   const newCard = new Card(
     cardData.name,
     cardData.link,
     selector.cardSelector,
     {
       handleCardClick: () => {
-        const newPopupWithImage = new PopupWithImage(".modal__image-popup");
+        const newPopupWithImage = new PopupWithImage("#modal__image-popup");
         newPopupWithImage.open(cardData.name, cardData.link);
       },
     }
