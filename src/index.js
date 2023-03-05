@@ -1,12 +1,12 @@
 import "./styles/index.css";
-import * as selector from "../scripts/Constants.js";
-import { PopupWithForm } from "../scripts/PopupWithForm.js";
-import { FormValidator } from "../scripts/FormValidator.js";
-import { validationConfig } from "../scripts/Constants.js";
-import { Card, initialCards } from "../scripts/Card.js";
-import { Section } from "../scripts/Section.js";
-import { PopupWithImage } from "../scripts/PopupWithImage.js";
-import { UserInfo } from "../scripts/UserInfo.js";
+import * as selector from "./scripts/Constants.js";
+import { PopupWithForm } from "./scripts/PopupWithForm.js";
+import { FormValidator } from "./scripts/FormValidator.js";
+import { validationConfig } from "./scripts/Constants.js";
+import { Card, initialCards } from "./scripts/Card.js";
+import { Section } from "./scripts/Section.js";
+import { PopupWithImage } from "./scripts/PopupWithImage.js";
+import { UserInfo } from "./scripts/UserInfo.js";
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();

@@ -1,4 +1,4 @@
-import * as selector from "../scripts/Constants.js";
+import * as selector from "./Constants.js";
 export class UserInfo {
   constructor(userName, userJob) {
     this.userName = userName;
