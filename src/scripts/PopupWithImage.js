@@ -9,7 +9,6 @@ export class PopupWithImage extends Popup {
     this.popUpImage.src = inputValueLink;
     this.popUpImage.alt = inputValueName;
     this.popUpCaption.textContent = inputValueName;
-    super.setEventListeners();
     super.open();
   }
 }

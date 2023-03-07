@@ -24,7 +24,7 @@ export class Popup {
     this._popUpElement
       .querySelector(".modal__close-button")
       .addEventListener("click", () => {
-        this.close(this._popUpElement);
+        this.close();
       });
     this._popUpElement.addEventListener("click", this._handleOutsideClick);
   }

@@ -1,29 +1,3 @@
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
 export class Card {
   constructor(text, image, cardSelector, { handleCardClick }) {
     this._image = image;
@@ -35,10 +9,15 @@ export class Card {
     this._cardImage.addEventListener("click", () => {
       this._handleCardClick();
     });
-    this._cardLikeButton.addEventListener("click", () =>
-      this._cardLikeButton.classList.toggle("elements__like-button-black")
-    );
-    this._deleteCardButton.addEventListener("click", this.removeCard);
+    this._cardLikeButton.addEventListener("click", () => {
+      this.toggleLikeButton();
+    });
+    this._deleteCardButton.addEventListener("click", () => {
+      this.removeCard();
+    });
+  }
+  toggleLikeButton() {
+    this._cardLikeButton.classList.toggle("elements__like-button-black");
   }
   generateCard() {
     this._element = document
