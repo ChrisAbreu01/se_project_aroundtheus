@@ -26,37 +26,40 @@ export const initialCards = [
 ];
 export class Card {
   constructor(text, image, cardSelector, { handleCardClick }) {
-    this.image = image;
-    this.text = text;
+    this._image = image;
+    this._text = text;
     this._handleCardClick = handleCardClick;
-    this.element = document
-      .querySelector(cardSelector)
-      .content.querySelector(".elements__element")
-      .cloneNode(true);
-    this.cardImage = this.element.querySelector(".elements__img");
-    this.cardFormElement = document.querySelector("#card__modal-form");
-    this.cardLikeButton = this.element.querySelector(".elements__like-button");
-    this.deleteCardButton = this.element.querySelector(
-      ".element__delete-button"
-    );
+    this._cardSelector = cardSelector;
   }
   _setEventListeners() {
-    this.cardImage.addEventListener("click", () => {
+    this._cardImage.addEventListener("click", () => {
       this._handleCardClick();
     });
-    this.cardLikeButton.addEventListener("click", () =>
-      this.cardLikeButton.classList.toggle("elements__like-button-black")
+    this._cardLikeButton.addEventListener("click", () =>
+      this._cardLikeButton.classList.toggle("elements__like-button-black")
     );
-    this.deleteCardButton.addEventListener("click", function () {
-      const listItem = this.closest(".elements__element");
-      listItem.remove();
-    });
+    this._deleteCardButton.addEventListener("click", this.removeCard);
   }
   generateCard() {
-    this.cardImage.src = this.image;
-    this.cardImage.alt = this.text;
-    this.element.querySelector(".elements__title").textContent = this.text;
+    this._element = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".elements__element")
+      .cloneNode(true);
+    this._cardImage = this._element.querySelector(".elements__img");
+    this._cardLikeButton = this._element.querySelector(
+      ".elements__like-button"
+    );
+    this._deleteCardButton = this._element.querySelector(
+      ".element__delete-button"
+    );
+    this._element.querySelector(".elements__title").textContent = this._text;
+    this._cardImage.src = this._image;
+    this._cardImage.alt = this._text;
     this._setEventListeners();
-    return this.element;
+    return this._element;
+  }
+  removeCard() {
+    this._element.remove();
+    this._element = null;
   }
 }

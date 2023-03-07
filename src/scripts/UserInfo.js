@@ -1,17 +1,18 @@
-import * as selector from "./Constants.js";
+import * as constants from "../utils/constants.js";
 export class UserInfo {
-  constructor(userName, userJob) {
-    this.userName = userName;
-    this.userJob = userJob;
+  constructor({ nameSelector, jobSelector }) {
+    this._nameElement = document.querySelector(nameSelector);
+    this._jobElement = document.querySelector(jobSelector);
   }
   getUserInfo() {
     const userInfoList = {};
-    userInfoList.name = this.userName;
-    userInfoList.job = this.userJob;
+    userInfoList.name = this._nameElement.textContent;
+    userInfoList.description = this._jobElement.textContent;
     return userInfoList;
   }
-  setUserInfo() {
-    selector.profileName.textContent = this.userName;
-    selector.profileJob.textContent = this.userJob;
+  setUserInfo(name, description) {
+    this.getUserInfo();
+    this._nameElement.textContent = name;
+    this._jobElement.textContent = description;
   }
 }
