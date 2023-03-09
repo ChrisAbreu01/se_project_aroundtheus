@@ -14,8 +14,6 @@ const userInfo = new UserInfo({
 function handleProfileFormSubmit(inputValues) {
   userInfo.setUserInfo(inputValues.name, inputValues.description);
   profilePopup.close();
-  constants.nameInput.placeholder = inputValues.name;
-  constants.jobInput.placeholder = inputValues.description;
 }
 
 function handleCardFormSubmit(inputValues) {
@@ -74,7 +72,9 @@ const profilePopup = new PopupWithForm(
   handleProfileFormSubmit
 );
 constants.profileModalBoxOpen.addEventListener("click", () => {
-  profilePopup.open();
   profileFormValidation.toggleButtonState();
+  constants.nameInput.value = constants.profileName.textContent;
+  constants.jobInput.value = constants.profileJob.textContent;
+  profilePopup.open();
 });
 profilePopup.setEventListeners();
