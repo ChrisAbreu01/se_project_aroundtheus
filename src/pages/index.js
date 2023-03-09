@@ -1,19 +1,21 @@
 import "../pages/index.css";
 import * as constants from "../utils/constants.js";
-import { PopupWithForm } from "../scripts/PopupWithForm.js";
-import { FormValidator } from "../scripts/FormValidator.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { FormValidator } from "../components/FormValidator.js";
 import { validationConfig } from "../utils/constants.js";
-import { Card } from "../scripts/Card.js";
-import { Section } from "../scripts/Section.js";
-import { PopupWithImage } from "../scripts/PopupWithImage.js";
-import { UserInfo } from "../scripts/UserInfo.js";
-const newUserInfo = new UserInfo({
+import { Card } from "../components/Card.js";
+import { Section } from "../components/Section.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { UserInfo } from "../components/UserInfo.js";
+const userInfo = new UserInfo({
   nameSelector: "#modal-name-input",
   jobSelector: "#modal-description-input",
 });
 function handleProfileFormSubmit(inputValues) {
-  newUserInfo.setUserInfo(inputValues.name, inputValues.description);
+  userInfo.setUserInfo(inputValues.name, inputValues.description);
   profilePopup.close();
+  constants.nameInput.placeholder = inputValues.name;
+  constants.jobInput.placeholder = inputValues.description;
 }
 
 function handleCardFormSubmit(inputValues) {
@@ -72,10 +74,7 @@ const profilePopup = new PopupWithForm(
   handleProfileFormSubmit
 );
 constants.profileModalBoxOpen.addEventListener("click", () => {
-  profileFormValidation.toggleButtonState();
   profilePopup.open();
-  const { name, description } = newUserInfo.getUserInfo();
-  constants.profileName.value = name;
-  constants.jobInput.value = description;
+  profileFormValidation.toggleButtonState();
 });
 profilePopup.setEventListeners();

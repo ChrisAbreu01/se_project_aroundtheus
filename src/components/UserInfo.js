@@ -1,9 +1,8 @@
+import * as constants from "../utils/constants.js";
 export class UserInfo {
   constructor({ nameSelector, jobSelector }) {
     this._nameElement = document.querySelector(nameSelector);
     this._jobElement = document.querySelector(jobSelector);
-    this._nameField = document.querySelector(".profile__name");
-    this._descriptionField = document.querySelector(".profile__subtitle");
   }
   getUserInfo() {
     const userInfoList = {};
@@ -12,7 +11,7 @@ export class UserInfo {
     return userInfoList;
   }
   setUserInfo(name, description) {
-    this._nameField.textContent = name;
-    this._descriptionField.textContent = description;
+    constants.profileName.textContent = name;
+    constants.profileJob.textContent = description;
   }
 }
