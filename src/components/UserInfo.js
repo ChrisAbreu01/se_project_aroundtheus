@@ -11,7 +11,7 @@ export class UserInfo {
     return userInfoList;
   }
   setUserInfo(name, description) {
-    constants.profileName.textContent = name;
-    constants.profileJob.textContent = description;
+    this._nameElement.textContent = name;
+    this._jobElement.textContent = description;
   }
 }

@@ -8,8 +8,8 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 const userInfo = new UserInfo({
-  nameSelector: "#modal-name-input",
-  jobSelector: "#modal-description-input",
+  nameSelector: ".profile__name",
+  jobSelector: ".profile__subtitle",
 });
 function handleProfileFormSubmit(inputValues) {
   userInfo.setUserInfo(inputValues.name, inputValues.description);
@@ -73,8 +73,9 @@ const profilePopup = new PopupWithForm(
 );
 constants.profileModalBoxOpen.addEventListener("click", () => {
   profileFormValidation.toggleButtonState();
-  constants.nameInput.value = constants.profileName.textContent;
-  constants.jobInput.value = constants.profileJob.textContent;
+  const currentUserInfo = userInfo.getUserInfo();
+  constants.nameInput.value = currentUserInfo.name;
+  constants.jobInput.value = currentUserInfo.description;
   profilePopup.open();
 });
 profilePopup.setEventListeners();
