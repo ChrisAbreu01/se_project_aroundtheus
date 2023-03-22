@@ -25,4 +25,7 @@ export class PopupWithForm extends Popup {
     });
     return inputValues;
   }
+  setSubmitAction(callBack) {
+    this._handleFormSubmit = callBack;
+  }
 }

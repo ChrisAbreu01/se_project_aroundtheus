@@ -36,7 +36,14 @@
   cursor: pointer;
   opacity: 0.7;
 }
-
+.elements__tag-container {
+  display: flex;
+  flex-direction: column;
+}
+.elements__like-count {
+  font-size: xx-small;
+  margin: -8px 22px 0 auto;
+}
 .elements__like-button-area {
   width: 21px;
   height: 19px;
@@ -66,7 +73,7 @@
 
 .elements__tag {
   display: flex;
-  margin: 25px 15px 31px 21px;
+  margin: 25px 15px 0 21px;
   align-items: center;
   justify-content: space-between;
 }

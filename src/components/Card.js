@@ -1,8 +1,17 @@
 export class Card {
-  constructor(text, image, cardSelector, { handleCardClick }) {
+  constructor(
+    text,
+    image,
+    likeCount,
+    cardSelector,
+    { handleCardClick, addLikeCount, handleDelete }
+  ) {
     this._image = image;
+    this._likeCount = likeCount;
+    this._addLikeCount = addLikeCount;
     this._text = text;
     this._handleCardClick = handleCardClick;
+    this._handleDelete = handleDelete;
     this._cardSelector = cardSelector;
   }
   _setEventListeners() {
@@ -10,11 +19,18 @@ export class Card {
       this._handleCardClick();
     });
     this._cardLikeButton.addEventListener("click", () => {
+      console.log(this._likeCount);
       this.toggleLikeButton();
+      this.setLikeCount();
     });
     this._deleteCardButton.addEventListener("click", () => {
-      this.removeCard();
+      this._handleDelete();
     });
+  }
+  setLikeCount() {
+    this._cardLikeCount = this._element.querySelector(".elements__like-count");
+    this._addLikeCount(this._likeCount);
+    this._cardLikeCount.textContent = this._likeCount.length;
   }
   toggleLikeButton() {
     this._cardLikeButton.classList.toggle("elements__like-button-black");

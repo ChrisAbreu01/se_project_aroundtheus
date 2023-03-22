@@ -122,8 +122,8 @@
             />
             <div class="profile__content">
               <div class="profile__titles">
-                <h2 class="profile__name">Jacques Cousteau</h2>
-                <p class="profile__subtitle">Explorer</p>
+                <h2 class="profile__name"></h2>
+                <p class="profile__subtitle"></p>
               </div>
               <button class="profile__edit-space"></button>
             </div>
@@ -144,17 +144,46 @@
             </div>
           </div>
         </div>
+        <!--pop up element of the page starts here -->
+        <div class="modal" id="modal__delete-card">
+          <div
+            class="modal-box-close-container"
+            id="modal__delete-uppercontainer"
+          >
+            <button
+              class="modal__close-button"
+              id="modal__card-close-button"
+            ></button>
+            <div class="modal__container" id="modal__delete-container">
+              <h2 class="modal__header" id="modal__delete-header">
+                Are you sure?
+              </h2>
+              <form class="modal__form form" id="card__modal-form">
+                <button
+                  type="submit"
+                  class="modal__sumit-button form__submit"
+                  id="modal__delete-button"
+                >
+                  Yes
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
         <!--the element template  starts here -->
         <section class="elements">
           <template id="elements-template">
             <div class="elements__element">
               <div class="element__delete-button"></div>
               <img class="elements__img" src=".." alt=".." />
-              <div class="elements__tag">
-                <p class="elements__title">Yosemite Valley</p>
-                <div class="elements__like-button-area">
-                  <button class="elements__like-button"></button>
+              <div class="elements__tag-container">
+                <div class="elements__tag">
+                  <p class="elements__title">Yosemite Valley</p>
+                  <div class="elements__like-button-area">
+                    <button class="elements__like-button"></button>
+                  </div>
                 </div>
+                <p class="elements__like-count"></p>
               </div>
             </div>
           </template>

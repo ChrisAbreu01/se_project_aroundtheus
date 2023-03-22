@@ -139,6 +139,22 @@
   transition: opacity 0.3s, visibility 0.3s;
   cursor: pointer;
 }
+#modal__delete-container {
+  max-width: 430px;
+  max-height: 181px;
+}
+#modal__delete-header {
+  margin: 34px 36px 38px 36px;
+}
+#modal__delete-button {
+  margin: 0px 36px 36px 36px;
+}
+#modal__delete-uppercontainer {
+  justify-content: flex-start;
+}
+#modal__delete-card {
+  top: 0;
+}
 
 #modal__image-popup {
   display: flex;
@@ -201,6 +217,7 @@
     min-width: 26px;
     min-height: 26px;
     height: 26px;
+    margin: 4px 3px 0 auto;
     background-size: contain;
   }
   .modal-box-close-container {
