@@ -27,6 +27,7 @@ api.fetchProfile().then((data) => {
     jobSelector: ".profile__subtitle",
   });
   userInfo.setUserInfo(data.name, data.about);
+  userInfo.updateUserAvatar(data.avatar);
 });
 api.getInitialCards().then((data) => {
   cardsSection = new Section(
@@ -55,9 +56,12 @@ function handleCardFormSubmit(inputValues) {
 
   cardsPopup.close();
 }
-// function handleDeleteCardSubmit() {
-//   newCard.removeCard();
-// }
+
+function handleAvatarUpdate(inputvalues) {
+  api.updateProfilePicture(inputvalues.link);
+  userInfo.updateUserAvatar(inputvalues.link);
+  editProfilePopUp.close();
+}
 
 const profileFormValidation = new FormValidator(
   constants.profileFormElement,
@@ -69,15 +73,26 @@ const cardFormValidation = new FormValidator(
   constants.cardFormElement,
   validationConfig
 );
-
 cardFormValidation.enableValidation();
+const editAvatarValidator = new FormValidator(
+  constants.profileEditForm,
+  validationConfig
+);
+editAvatarValidator.enableValidation();
 
 const newPopupWithImage = new PopupWithImage("#modal__image-popup");
 newPopupWithImage.setEventListeners();
+
 const deletePopUp = new PopupWithForm("#modal__delete-card");
 deletePopUp.setEventListeners();
+
+const editProfilePopUp = new PopupWithForm(
+  "#modal__edit-avatar",
+  handleAvatarUpdate
+);
+editProfilePopUp.setEventListeners();
+
 function createCard(cardData) {
-  console.log(cardData);
   const newCard = new Card(
     cardData.name,
     cardData.link,
@@ -127,7 +142,10 @@ const profilePopup = new PopupWithForm(
   "#profile__modal",
   handleProfileFormSubmit
 );
-
+constants.profileEdit.addEventListener("click", () => {
+  constants.modalEditAvatarSubmit.textContent = "Save";
+  editProfilePopUp.open();
+});
 constants.profileModalBoxOpen.addEventListener("click", () => {
   profileFormValidation.toggleButtonState();
   const currentUserInfo = userInfo.getUserInfo();

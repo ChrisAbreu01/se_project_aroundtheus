@@ -42,6 +42,14 @@ export const jobInput = document.querySelector("#modal-description-input");
 export const profileName = document.querySelector(".profile__name");
 export const profileJob = document.querySelector(".profile__subtitle");
 export const cardFormElement = document.querySelector("#card__modal-form");
+export const profileEdit = document.querySelector(".profile__avatar");
+export const profileEditForm = document.querySelector(
+  "#edit__avatar-modal-form"
+);
+export const userAvatar = document.querySelector(".profile__image");
+export const modalEditAvatarSubmit = document.querySelector(
+  "#modal__edit-avatar-submit"
+);
 export const cardsContainer = ".elements";
 export const cardSelector = "#elements-template";
 export const formList = Array.from(

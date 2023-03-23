@@ -195,6 +195,15 @@
 .modal__caption {
   color: white;
 }
+#modal__edit-avatar {
+  top: 0;
+}
+#modal__edit-avatar-submit {
+  margin: 0px auto;
+}
+#modal__edit-avatar-container {
+  max-height: 272px;
+}
 
 @media screen and (max-width: 600px) {
   .modal__container {

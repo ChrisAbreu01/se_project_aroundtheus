@@ -3,6 +3,7 @@ export class UserInfo {
   constructor({ nameSelector, jobSelector }) {
     this._nameElement = document.querySelector(nameSelector);
     this._jobElement = document.querySelector(jobSelector);
+    this._userAvatar = document.querySelector(".profile__image");
   }
   getUserInfo() {
     const userInfoList = {};
@@ -13,5 +14,11 @@ export class UserInfo {
   setUserInfo(name, description) {
     this._nameElement.textContent = name;
     this._jobElement.textContent = description;
+  }
+  updateUserAvatar(link) {
+    this._userAvatar.src = link;
+    this._userAvatar.onload = () => {
+      constants.modalEditAvatarSubmit.textContent = "Saving...";
+    };
   }
 }
