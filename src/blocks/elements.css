@@ -27,7 +27,11 @@
   background-image: url(../images/Trash.png);
   width: 18px;
   height: 18px;
+  visibility: hidden;
   margin: 24px 0 0 250px;
+}
+.element__delete-button-visible {
+  visibility: visible;
 }
 .element__delete-button:hover {
   -webkit-transform: scale(1.1);

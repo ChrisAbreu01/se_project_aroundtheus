@@ -19,8 +19,16 @@ const api = new Api({
 let cardsSection;
 let userInfo;
 let userId;
-
-const initialCards = api.getInitialCards().then((data) => {
+// let cardOwnerId;
+api.fetchProfile().then((data) => {
+  userId = data._id;
+  userInfo = new UserInfo({
+    nameSelector: ".profile__name",
+    jobSelector: ".profile__subtitle",
+  });
+  userInfo.setUserInfo(data.name, data.about);
+});
+api.getInitialCards().then((data) => {
   cardsSection = new Section(
     {
       items: data,
@@ -31,15 +39,7 @@ const initialCards = api.getInitialCards().then((data) => {
 
   cardsSection.renderItems();
 });
-api.fetchProfile().then((data) => {
-  console.log(data);
-  userId = data._id;
-  userInfo = new UserInfo({
-    nameSelector: ".profile__name",
-    jobSelector: ".profile__subtitle",
-  });
-  userInfo.setUserInfo(data.name, data.about);
-});
+
 function handleProfileFormSubmit(inputValues) {
   api.editProfile(inputValues.name, inputValues.description);
   userInfo.setUserInfo(inputValues.name, inputValues.description);
@@ -48,8 +48,11 @@ function handleProfileFormSubmit(inputValues) {
 
 function handleCardFormSubmit(inputValues) {
   api.addCard(inputValues.name, inputValues.link);
-  const newCard = createCard(inputValues);
-  cardsSection.addItem(newCard);
+  api.getInitialCards().then((data) => {
+    const newCard = createCard(data[0]);
+    cardsSection.addItem(newCard);
+  });
+
   cardsPopup.close();
 }
 // function handleDeleteCardSubmit() {
@@ -74,25 +77,35 @@ newPopupWithImage.setEventListeners();
 const deletePopUp = new PopupWithForm("#modal__delete-card");
 deletePopUp.setEventListeners();
 function createCard(cardData) {
+  console.log(cardData);
   const newCard = new Card(
     cardData.name,
     cardData.link,
     cardData.likes,
+    userId,
+    cardData.owner._id,
     constants.cardSelector,
     {
       handleCardClick: () => {
         newPopupWithImage.open(cardData.name, cardData.link);
       },
+      deleteLikes: () => {
+        api.removeLike(cardData._id).then((res) => {
+          newCard.setLikeCount(res.likes);
+        });
+      },
       addLikeCount: () => {
-        api.addLike(cardData._id);
+        api.addLike(cardData._id).then((res) => {
+          newCard.setLikeCount(res.likes);
+        });
       },
       handleDelete: () => {
         deletePopUp.open();
-        console.log(cardData);
         deletePopUp.setSubmitAction(() => {
           api.deleteCard(cardData._id).then((res) => {
             if (res.ok) {
               newCard.removeCard();
+              deletePopUp.close();
             }
           });
         });

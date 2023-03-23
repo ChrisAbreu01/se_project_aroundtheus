@@ -65,6 +65,7 @@ export class Api {
       },
     });
   }
+
   addLike(data) {
     return fetch(`${this.baseUrl}/cards/likes/${data}`, {
       method: "PUT",
@@ -72,6 +73,25 @@ export class Api {
         authorization: this.headers.authorization,
         "Content-Type": "application/json",
       },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+  removeLike(data) {
+    return fetch(`${this.baseUrl}/cards/likes/${data}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this.headers.authorization,
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
   // other methods for working with the API
