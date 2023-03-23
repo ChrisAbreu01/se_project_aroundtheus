@@ -72,6 +72,12 @@
   visibility: hidden;
   font-size: 12px;
 }
+.modal-avatar-url-error {
+  color: red;
+  margin: 0px 36px 7px 36px;
+  visibility: hidden;
+  font-size: 12px;
+}
 
 .modal-box-close-container {
   margin: 0;
