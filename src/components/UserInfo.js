@@ -17,8 +17,5 @@ export class UserInfo {
   }
   updateUserAvatar(link) {
     this._userAvatar.src = link;
-    this._userAvatar.onload = () => {
-      constants.modalEditAvatarSubmit.textContent = "Saving...";
-    };
   }
 }

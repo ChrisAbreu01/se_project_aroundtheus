@@ -17,50 +17,64 @@ const api = new Api({
 });
 
 let cardsSection;
+let cardInfoUpdated;
 let userInfo;
 let userId;
-// let cardOwnerId;
-api.fetchProfile().then((data) => {
-  userId = data._id;
-  userInfo = new UserInfo({
-    nameSelector: ".profile__name",
-    jobSelector: ".profile__subtitle",
-  });
-  userInfo.setUserInfo(data.name, data.about);
-  userInfo.updateUserAvatar(data.avatar);
-});
-api.getInitialCards().then((data) => {
-  cardsSection = new Section(
-    {
-      items: data,
-      renderer: createCard,
-    },
-    constants.cardsContainer
-  );
 
-  cardsSection.renderItems();
-});
+Promise.all([api.fetchProfile(), api.getInitialCards()])
+  .then(([userData, cards]) => {
+    userId = userData._id;
+    cardInfoUpdated = cards;
+    userInfo = new UserInfo({
+      nameSelector: ".profile__name",
+      jobSelector: ".profile__subtitle",
+    });
+    userInfo.setUserInfo(userData.name, userData.about);
+    userInfo.updateUserAvatar(userData.avatar);
+
+    cardsSection = new Section(
+      {
+        items: cards,
+        renderer: createCard,
+      },
+      constants.cardsContainer
+    );
+
+    cardsSection.renderItems();
+    // set all the data
+  })
+  .catch((err) => {
+    return Promise.reject(`Error ${err.status}`);
+  });
 
 function handleProfileFormSubmit(inputValues) {
-  api.editProfile(inputValues.name, inputValues.description);
-  userInfo.setUserInfo(inputValues.name, inputValues.description);
-  profilePopup.close();
+  constants.modalEditProfileSubmit.textContent = "Saving...";
+  api.editProfile(inputValues.name, inputValues.description).then((data) => {
+    console.log(data);
+    userInfo.setUserInfo(data.name, data.about);
+    profilePopup.close();
+    constants.modalEditProfileSubmit.textContent = "Save";
+  });
 }
 
 function handleCardFormSubmit(inputValues) {
-  api.addCard(inputValues.name, inputValues.link);
-  api.getInitialCards().then((data) => {
-    const newCard = createCard(data[0]);
+  constants.modalCardSubmit.textContent = "Saving...";
+  api.addCard(inputValues.name, inputValues.link).then((data) => {
+    const newCard = createCard(data);
     cardsSection.addItem(newCard);
+    cardsPopup.close();
+    constants.modalCardSubmit.textContent = "Save";
   });
-
-  cardsPopup.close();
 }
 
 function handleAvatarUpdate(inputvalues) {
-  api.updateProfilePicture(inputvalues.link);
-  userInfo.updateUserAvatar(inputvalues.link);
-  editProfilePopUp.close();
+  constants.modalEditAvatarSubmit.textContent = "Saving...";
+  api.updateProfilePicture(inputvalues.link).then((data) => {
+    console.log(data);
+    userInfo.updateUserAvatar(data.avatar);
+    editProfilePopUp.close();
+    constants.modalEditAvatarSubmit.textContent = "Save";
+  });
 }
 
 const profileFormValidation = new FormValidator(

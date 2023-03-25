@@ -50,6 +50,11 @@ export const userAvatar = document.querySelector(".profile__image");
 export const modalEditAvatarSubmit = document.querySelector(
   "#modal__edit-avatar-submit"
 );
+export const modalEditProfileSubmit = document.querySelector(
+  "#profile-submit-button"
+);
+export const modalCardSubmit = document.querySelector("#card-submit-button");
+
 export const cardsContainer = ".elements";
 export const cardSelector = "#elements-template";
 export const formList = Array.from(
