@@ -132,10 +132,8 @@ function createCard(cardData) {
         deletePopUp.open();
         deletePopUp.setSubmitAction(() => {
           api.deleteCard(cardData._id).then((res) => {
-            if (res.ok) {
-              newCard.removeCard();
-              deletePopUp.close();
-            }
+            newCard.removeCard();
+            deletePopUp.close();
           });
         });
       },
