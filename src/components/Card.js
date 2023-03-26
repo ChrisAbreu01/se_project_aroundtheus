@@ -26,9 +26,7 @@ export class Card {
     this._cardLikeButton.addEventListener("click", () => {
       if (this.isLiked()) {
         this._deleteLikes();
-        this.toggleLikeButton();
       } else {
-        this.toggleLikeButton();
         this._addLikeCount();
       }
     });

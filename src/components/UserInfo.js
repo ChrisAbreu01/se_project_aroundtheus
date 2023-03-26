@@ -1,9 +1,9 @@
 import * as constants from "../utils/constants.js";
 export class UserInfo {
-  constructor({ nameSelector, jobSelector }) {
+  constructor({ nameSelector, jobSelector, avatarSelector }) {
     this._nameElement = document.querySelector(nameSelector);
     this._jobElement = document.querySelector(jobSelector);
-    this._userAvatar = document.querySelector(".profile__image");
+    this._userAvatar = document.querySelector(avatarSelector);
   }
   getUserInfo() {
     const userInfoList = {};

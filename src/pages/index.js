@@ -17,17 +17,16 @@ const api = new Api({
 });
 
 let cardsSection;
-let cardInfoUpdated;
 let userInfo;
 let userId;
 
 Promise.all([api.fetchProfile(), api.getInitialCards()])
   .then(([userData, cards]) => {
     userId = userData._id;
-    cardInfoUpdated = cards;
     userInfo = new UserInfo({
       nameSelector: ".profile__name",
       jobSelector: ".profile__subtitle",
+      avatarSelector: ".profile__image",
     });
     userInfo.setUserInfo(userData.name, userData.about);
     userInfo.updateUserAvatar(userData.avatar);
@@ -41,40 +40,60 @@ Promise.all([api.fetchProfile(), api.getInitialCards()])
     );
 
     cardsSection.renderItems();
-    // set all the data
   })
   .catch((err) => {
-    return Promise.reject(`Error ${err.status}`);
+    console.log(err);
   });
 
 function handleProfileFormSubmit(inputValues) {
   constants.modalEditProfileSubmit.textContent = "Saving...";
-  api.editProfile(inputValues.name, inputValues.description).then((data) => {
-    console.log(data);
-    userInfo.setUserInfo(data.name, data.about);
-    profilePopup.close();
-    constants.modalEditProfileSubmit.textContent = "Save";
-  });
+  api
+    .editProfile(inputValues.name, inputValues.description)
+    .then((data) => {
+      console.log(data);
+      userInfo.setUserInfo(data.name, data.about);
+      profilePopup.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      constants.modalEditProfileSubmit.textContent = "Save";
+    });
 }
 
 function handleCardFormSubmit(inputValues) {
   constants.modalCardSubmit.textContent = "Saving...";
-  api.addCard(inputValues.name, inputValues.link).then((data) => {
-    const newCard = createCard(data);
-    cardsSection.addItem(newCard);
-    cardsPopup.close();
-    constants.modalCardSubmit.textContent = "Save";
-  });
+  api
+    .addCard(inputValues.name, inputValues.link)
+    .then((data) => {
+      const newCard = createCard(data);
+      cardsSection.addItem(newCard);
+      cardsPopup.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      constants.modalEditProfileSubmit.textContent = "Save";
+    });
 }
 
 function handleAvatarUpdate(inputvalues) {
   constants.modalEditAvatarSubmit.textContent = "Saving...";
-  api.updateProfilePicture(inputvalues.link).then((data) => {
-    console.log(data);
-    userInfo.updateUserAvatar(data.avatar);
-    editProfilePopUp.close();
-    constants.modalEditAvatarSubmit.textContent = "Save";
-  });
+  api
+    .updateProfilePicture(inputvalues.link)
+    .then((data) => {
+      console.log(data);
+      userInfo.updateUserAvatar(data.avatar);
+      editProfilePopUp.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      constants.modalEditAvatarSubmit.textContent = "Save";
+    });
 }
 
 const profileFormValidation = new FormValidator(
@@ -88,6 +107,7 @@ const cardFormValidation = new FormValidator(
   validationConfig
 );
 cardFormValidation.enableValidation();
+
 const editAvatarValidator = new FormValidator(
   constants.profileEditForm,
   validationConfig
@@ -119,22 +139,40 @@ function createCard(cardData) {
         newPopupWithImage.open(cardData.name, cardData.link);
       },
       deleteLikes: () => {
-        api.removeLike(cardData._id).then((res) => {
-          newCard.setLikeCount(res.likes);
-        });
+        api
+          .removeLike(cardData._id)
+          .then((res) => {
+            console.log(res);
+            newCard.setLikeCount(res.likes);
+            newCard.toggleLikeButton();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       },
       addLikeCount: () => {
-        api.addLike(cardData._id).then((res) => {
-          newCard.setLikeCount(res.likes);
-        });
+        api
+          .addLike(cardData._id)
+          .then((res) => {
+            newCard.setLikeCount(res.likes);
+            newCard.toggleLikeButton();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       },
       handleDelete: () => {
         deletePopUp.open();
         deletePopUp.setSubmitAction(() => {
-          api.deleteCard(cardData._id).then((res) => {
-            newCard.removeCard();
-            deletePopUp.close();
-          });
+          api
+            .deleteCard(cardData._id)
+            .then((res) => {
+              newCard.removeCard();
+              deletePopUp.close();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         });
       },
     }
@@ -155,7 +193,7 @@ const profilePopup = new PopupWithForm(
   handleProfileFormSubmit
 );
 constants.profileEdit.addEventListener("click", () => {
-  constants.modalEditAvatarSubmit.textContent = "Save";
+  editAvatarValidator.toggleButtonState();
   editProfilePopUp.open();
 });
 constants.profileModalBoxOpen.addEventListener("click", () => {
