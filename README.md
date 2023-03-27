@@ -1,7 +1,7 @@
 
 # Around The U.S.
 
-  ### overview
+  ### Overview
   
 This is a project that showcases the hometowns of some of Practicum's tutors and personnel. They share some interesting information about the places they come from, share some of their culture, and pictures of their hometowns.
 
