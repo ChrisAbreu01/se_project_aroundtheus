@@ -126,14 +126,17 @@
 @media screen and (max-width: 880px) {
   .profile__edit-button {
     width: fit-content;
+    margin: 32px 56px 0px 0px;
   }
 
   .profile__main {
     justify-content: space-evenly;
+    margin: 0 0 0 auto;
   }
 
   .profile {
     justify-content: flex-start;
+    margin: 40px 0 0 0;
   }
 
   .profile__edit-space {
@@ -147,9 +150,14 @@
     width: 100%;
     align-items: center;
   }
+  .profile__avatar {
+    margin: 40px auto 0;
+    z-index: 0;
+    bottom: 120px;
+  }
 
   .profile {
-    margin: 42px auto 0 auto;
+    margin: 120px auto 0;
     flex-direction: column;
     align-items: center;
   }
@@ -205,5 +213,8 @@
     width: 282px;
     height: 50px;
     margin: 36px 0 0 0;
+  }
+  .profile__avatar-icon {
+    margin: 44px auto 0 auto !important;
   }
 }

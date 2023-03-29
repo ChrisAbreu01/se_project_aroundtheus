@@ -15,7 +15,7 @@
   opacity: 0;
   pointer-events: none;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
-  z-index: 1;
+  z-index: 2;
 }
 
 .modal_box_opened {
@@ -214,11 +214,13 @@
 @media screen and (max-width: 600px) {
   .modal__container {
     max-width: 282px;
+    min-height: 300px;
     max-height: 322px;
   }
   .modal__sumit-button {
     max-width: 238px;
     max-height: 46px;
+    margin: 0 auto;
   }
   .modal__input {
     max-width: 238px;
@@ -237,7 +239,18 @@
   }
   .modal-box-close-container {
     max-width: 340px;
-    max-height: 322px;
+    z-index: 2;
+    max-height: 282px;
+  }
+  #modal-input-url {
+    margin: 0 20px 6px;
+  }
+  #modal-description-input {
+    margin: 0 20px 0px;
+  }
+  #modal__image-popup {
+    max-width: 320px;
+    margin: 0;
   }
   .modal__image-close {
     margin: 0px -28px 0 auto;
