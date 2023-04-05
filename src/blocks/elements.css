@@ -45,7 +45,7 @@
   flex-direction: column;
 }
 .elements__like-count {
-  font-size: xx-small;
+  font-size: 13px;
   margin: -8px 22px 0 auto;
 }
 .elements__like-button-area {
