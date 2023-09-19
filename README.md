@@ -15,4 +15,4 @@ Our plan is to use this website as a blueprint for new websites, improve and sca
 
 ### Link to the project
 
-Check out the project https://chrisabreu01.github.io/se_project_aroundtheus/
+## Project Live  [Here](https://chrisabreu01.github.io/se_project_aroundtheus/)
